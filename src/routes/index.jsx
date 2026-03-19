@@ -1,6 +1,9 @@
 import { createHashRouter } from "react-router-dom"
 import FrontLayout from '../layout/FrontLayout'
 import Home from '../pages/Home'
+import About from "../pages/About"
+import Skills from "../pages/Skills"
+import Portfolio from "../pages/Portfolio"
 
 const router = createHashRouter([
   {
@@ -11,6 +14,18 @@ const router = createHashRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: 'about',     
+        element: <About />, 
+      },
+      {
+        path: 'portfolio',
+        element: <Portfolio />,
+      },
+      {
+        path: 'skills',
+        element: <Skills />,
+      }
     ],
   },
 ])

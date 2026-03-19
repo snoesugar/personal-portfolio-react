@@ -1,0 +1,50 @@
+[
+  {
+    "id": "boardreams",
+    "title": "Boardreams",
+    "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
+    "url": "https://snoesugar.github.io/Boardreams-React/",
+    "tags": ["React", "Bootstrap 5", "GSAP"],
+    "color": "#e3f2fd"
+  },
+  {
+    "id": "mofu",
+    "title": "Mofu-Diary",
+    "desc": "專為寵物飼主設計的日記應用，提供清晰的紀錄與可愛的視覺介面。",
+    "url": "https://snoesugar.github.io/Mofu-Diary/",
+    "tags": ["React", "CSS3", "Firebase"],
+    "color": "#fff3e0"
+  },
+  {
+    "id": "petpet",
+    "title": "PETPET",
+    "desc": "一站式寵物服務網，提供線上預約與服務展示。",
+    "url": "https://snoesugar.github.io/PETPET-React/",
+    "tags": ["React", "Tailwind", "QA/QC思維"],
+    "color": "#f1f8e9"
+  },
+  {
+    "id": "zobaa",
+    "title": "ZOBAA",
+    "desc": "充滿現代感的旅遊網站，展示旅遊行程與動態地圖。",
+    "url": "https://snoesugar.github.io/homeworkWeek8/",
+    "tags": ["JavaScript", "SASS", "Gulp"],
+    "color": "#e1f5fe"
+  },
+  {
+    "id": "urbnstep",
+    "title": "URBNSTEP",
+    "desc": "簡潔、流暢的鞋子電商介面，強調產品目錄的互動性。",
+    "url": "https://snoesugar.github.io/homeworkWeek3/index.html",
+    "tags": ["HTML5", "CSS3", "RWD"],
+    "color": "#ffebee"
+  },
+  {
+    "id": "workway",
+    "title": "WorkWay",
+    "desc": "以工程思維優化的職旅資訊平台，提供清晰的資訊分類。",
+    "url": "https://snoesugar.github.io/homeworkWeek5/",
+    "tags": ["JavaScript", "jQuery", "頁面動態"],
+    "color": "#f3e5f5"
+  }
+]
