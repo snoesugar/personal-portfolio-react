@@ -1,14 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import projectData from "../data/projects.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 瀏覽器 Mockup 組件 (新增載入狀態處理) ---
-const BrowserMockup = ({ url, title }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
+// --- 瀏覽器 Mockup 組件 (修改為純圖片版) ---
+const BrowserMockup = ({ img, url }) => {
   return (
     <div className="browser-mockup shadow-sm">
       <div className="browser-header">
@@ -22,35 +20,24 @@ const BrowserMockup = ({ url, title }) => {
         </div>
       </div>
 
-      <div className="browser-content position-relative">
-        {/* Loading Spinner: 展現品管般的細節控 */}
-        {!isLoaded && (
-          <div className="position-absolute w-100 h-100 d-flex align-items-center justify-content-center bg-light" style={{ zIndex: 5 }}>
-            <div className="spinner-border spinner-border-sm text-secondary" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
+      <div className="browser-content">
+        {img ? (
+          <img src={img} alt="Project Cover" className="img-fluid project-img" />
+        ) : (
+          <div className="d-flex align-items-center justify-content-center h-100 bg-light text-muted small">
+            Cover Image Missing
           </div>
         )}
-
-        {/* 透明遮罩：解決 iframe 與頁面捲動衝突 */}
-        <div className="iframe-overlay"></div>
-        
-        <iframe 
-          src={url} 
-          title={title}
-          width="100%" 
-          height="100%" 
-          style={{ border: 'none', display: 'block' }}
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-        ></iframe>
       </div>
     </div>
   );
 };
 
-// --- 作品卡片組件 ---
+// --- 作品卡片組件 (修改圖片傳遞方式) ---
 const ProjectCard = ({ proj, index, setCardRefs }) => {
+
+  const placeholderImg = `${import.meta.env.BASE_URL}${proj.title}.png`;
+
   return (
     <div 
       className="col-md-6 col-lg-4"
@@ -58,7 +45,8 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
     >
       <div className="card border-0 h-100 project-card bg-transparent">
         <div className="card-img-top p-3 bg-light rounded-4">
-          <BrowserMockup url={proj.url} title={proj.title} />
+          {/* 將圖片路徑傳給 Mockup */}
+          <BrowserMockup img={placeholderImg} url={proj.url} />
         </div>
         <div className="card-body p-4 pt-0">
           <h4 className="fw-bold mt-4 text-uppercase tracking-wide" style={{ fontSize: '1.25rem' }}>
@@ -84,7 +72,6 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
     </div>
   );
 };
-
 
 const Home = () => {
   const mainRef = useRef(null);

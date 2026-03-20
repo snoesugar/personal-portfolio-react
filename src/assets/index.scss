@@ -89,36 +89,24 @@ html {
   }
 
   // 內容區域 (圖片)
-// 瀏覽器內容區
+/* --- 瀏覽器 Mockup 純圖片版 SCSS --- */
 .browser-content {
-  height: 260px;
+  height: 260px; // 固定高度
   background: #fff;
-  overflow: hidden;
-  position: relative;
+  overflow: hidden; // 確保圓角效果
   border-radius: 0 0 12px 12px;
+  position: relative;
 
-  .iframe-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .project-img {
     width: 100%;
     height: 100%;
-    z-index: 10;
-    background: transparent;
-  }
-
-  iframe {
-    // 技巧：放大內容再縮小，模擬高解析度縮圖
-    width: 150%; 
-    height: 150%;
-    transform: scale(0.666); 
-    transform-origin: top left;
-    border: none;
-    pointer-events: none;
+    object-fit: cover; // 核心：圖片鋪滿容器，多餘的截掉
+    object-position: top; // 預設顯示頁面頂部
+    transition: transform 0.5s ease; // 為之後可能的 hover 動畫做準備
   }
 }
 
-// 作品卡片懸停
+/* 作品卡片懸停效果優化 */
 .project-card {
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   
@@ -132,6 +120,10 @@ html {
       background-color: #f8f9fa !important;
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
+    /* 選擇性：Hover 時圖片微微放大 */
+    // .project-img {
+    //   transform: scale(1.05);
+    // }
   }
 }
 
