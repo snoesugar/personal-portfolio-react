@@ -1,72 +1,54 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom"; // 用於導向 About 頁面
 import projectData from "../data/projects.json";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 瀏覽器 Mockup 組件 (修改為純圖片版) ---
-const BrowserMockup = ({ img, url }) => {
-  return (
-    <div className="browser-mockup shadow-sm">
-      <div className="browser-header">
-        <div className="browser-dots">
-          <span className="dot red"></span>
-          <span className="dot yellow"></span>
-          <span className="dot green"></span>
-        </div>
-        <div className="browser-address-bar text-muted small">
-          {url.replace("https://", "")}
-        </div>
+// --- 瀏覽器 Mockup 組件 ---
+const BrowserMockup = ({ img, url }) => (
+  <div className="browser-mockup shadow-sm">
+    <div className="browser-header">
+      <div className="browser-dots">
+        <span className="dot red"></span>
+        <span className="dot yellow"></span>
+        <span className="dot green"></span>
       </div>
-
-      <div className="browser-content">
-        {img ? (
-          <img src={img} alt="Project Cover" className="img-fluid project-img" />
-        ) : (
-          <div className="d-flex align-items-center justify-content-center h-100 bg-light text-muted small">
-            Cover Image Missing
-          </div>
-        )}
-      </div>
+      <div className="browser-address-bar text-muted small">{url.replace("https://", "")}</div>
     </div>
-  );
-};
+    <div className="browser-content">
+      {img ? <img src={img} alt="Project Cover" className="img-fluid project-img" /> : 
+      <div className="d-flex align-items-center justify-content-center h-100 bg-light text-muted small">Image Missing</div>}
+    </div>
+  </div>
+);
 
-// --- 作品卡片組件 (修改圖片傳遞方式) ---
-const ProjectCard = ({ proj, index, setCardRefs }) => {
-
+// --- 作品卡片組件 ---
+const ProjectCard = ({ proj }) => {
   const placeholderImg = `${import.meta.env.BASE_URL}${proj.title}.png`;
-
   return (
-    <div 
-      className="col-md-6 col-lg-4"
-      ref={(el) => setCardRefs(el, index)}
-    >
-      <div className="card border-0 h-100 project-card bg-transparent">
-        <div className="card-img-top p-3 bg-light rounded-4">
-          {/* 將圖片路徑傳給 Mockup */}
+    <div className="h-100 d-flex">
+      <div className="card project-card w-100 position-relative border-0 shadow-sm-hover">
+        <div className="card-img-wrapper p-3 bg-light rounded-4">
           <BrowserMockup img={placeholderImg} url={proj.url} />
         </div>
-        <div className="card-body p-4 pt-0">
-          <h4 className="fw-bold mt-4 text-uppercase tracking-wide" style={{ fontSize: '1.25rem' }}>
-            {proj.title}
-          </h4>
-          <p className="text-secondary small line-clamp-2 mb-3">
-            {proj.desc}
-          </p>
-          
-          <div className="mb-4 d-flex flex-wrap gap-2">
-            {proj.tags.map(tag => (
-              <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal" style={{ fontSize: '0.7rem' }}>
-                {tag}
-              </span>
-            ))}
+        <div className="card-body p-4 pt-0 d-flex flex-column flex-grow-1">
+          <h4 className="project-title fw-bold mt-4 text-uppercase">{proj.title}</h4>
+          <p className="project-desc text-secondary small line-clamp-2 mb-3">{proj.desc}</p>
+          <div className="project-tags mb-4 d-flex flex-wrap gap-2">
+            {proj.tags.map(tag => <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal">{tag}</span>)}
           </div>
-          
-          <a href={proj.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark btn-sm rounded-pill px-4 fw-bold">
-            Live Demo
-          </a>
+          <div className="mt-auto">
+            <a href={proj.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark btn-sm rounded-pill px-4 fw-bold stretched-link">Live Demo</a>
+          </div>
         </div>
       </div>
     </div>
@@ -75,41 +57,41 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
 
 const Home = () => {
   const mainRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  const setCardRefs = (el, index) => {
-    if (el) cardRefs.current[index] = el;
-  };
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // Hero 文字進場
-      gsap.from(".hero-content", {
-        y: 60,
+      gsap.from(".home-title", {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out"
+      });
+      // 1. Hero 進場
+      gsap.from(".hero-content", { y: 60, opacity: 0, duration: 1, ease: "power3.out" });
+
+      // 2. 核心價值卡片交錯進場 (New!)
+      gsap.from(".value-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".values-section",
+          start: "top 80%",
+        }
+      });
+
+      // 3. Swiper 容器進場
+      gsap.from(".my-swiper-container", {
+        y: 80,
         opacity: 0,
         duration: 1,
-        ease: "power3.out",
-      });
-
-      // 作品卡片交錯進場
-      cardRefs.current.forEach((el) => {
-        gsap.fromTo(el, 
-          { y: 80, opacity: 0 }, 
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            }
-          }
-        );
+        scrollTrigger: {
+          trigger: ".my-swiper-container",
+          start: "top 85%",
+        }
       });
     }, mainRef);
-
     return () => ctx.revert();
   }, []);
 
@@ -118,42 +100,80 @@ const Home = () => {
       {/* Hero Section */}
       <section className="vh-100 d-flex align-items-center justify-content-center">
         <div className="text-center hero-content px-3">
-          <span className="text-primary fw-bold tracking-widest mb-3 d-block" style={{ fontSize: '0.9rem' }}>HELLO, I'M CHIU YU-LIN</span>
-          <h1 className="display-1 fw-bold mb-4 tracking-tighter">Crafting Digital<br/>Products.</h1>
+          <span className="text-primary fw-bold tracking-widest mb-3 d-block small">CORE DEV & FOOD SCIENTIST</span>
+          <h1 className="display-1 fw-bold mb-4 tracking-tighter home-title">精密轉譯<br/>數位體驗</h1>
           <p className="lead text-secondary max-w-lg mx-auto mb-5">
-            從食品科學的嚴謹到前端開發的創意，我致力於用高品質的代碼，打造流暢且具商業價值的數位體驗。
+            擁有食品研發與品管背景的嚴謹工程師，擅長以系統化邏輯與數據思維，打造易於維護且兼具高品質的前端網頁。
           </p>
-          <a href="#portfolio" className="btn btn-outline-dark rounded-pill px-5 py-2">View Projects</a>
+          <div className="d-flex gap-3 justify-content-center">
+            <a href="#portfolio" className="btn btn-dark rounded-pill px-5 py-2">精選作品庫</a>
+            <Link to="/about" className="btn btn-outline-dark rounded-pill px-5 py-2">我的轉職故事</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 核心價值區塊 (New!) */}
+      <section className="values-section py-6 bg-light">
+        <div className="container">
+          <div className="row g-4">
+            <div className="col-md-4 value-card text-center">
+              <div className="p-4 h-100">
+                <div className="display-6 mb-3">🧪</div>
+                <h5 className="fw-bold">品管等級的嚴謹</h5>
+                <p className="small text-secondary">深知微小數據偏差可能影響產品安全，這使我對代碼 Debug 與邊界測試具備天然的警覺性。</p>
+              </div>
+            </div>
+            <div className="col-md-4 value-card text-center">
+              <div className="p-4 h-100">
+                <div className="display-6 mb-3">🛒</div>
+                <h5 className="fw-bold">超市經營的商務感</h5>
+                <p className="small text-secondary">網頁資料結構如同庫存管理，須高度組織化；介面動線則以提升轉單率為核心目標。</p>
+              </div>
+            </div>
+            <div className="col-md-4 value-card text-center">
+              <div className="p-4 h-100">
+                <div className="display-6 mb-3">📊</div>
+                <h5 className="fw-bold">數據轉譯的能力</h5>
+                <p className="small text-secondary">擅長將複雜數據轉化為結構化資訊，實現從「後端邏輯」到「使用者體驗」的完美銜接。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 作品集區塊 */}
-      <section id="portfolio" className="container py-5">
-        <div className="row g-5">
-          <div className="col-12 text-center mb-5">
-            <h2 className="display-5 fw-bold mt-3">Featured Works</h2>
-            <div className="bg-primary mx-auto mt-2" style={{ width: '40px', height: '4px' }}></div>
-          </div>
-          
-          {projectData.map((proj, i) => (
-            <ProjectCard 
-              key={proj.id} 
-              proj={proj} 
-              index={i} 
-              setCardRefs={setCardRefs} 
-            />
-          ))}
+      <section id="portfolio" className="container py-9 overflow-hidden">
+        <div className="col-12 text-center mb-5">
+          <h2 className="display-5 fw-bold mt-3">Featured Works</h2>
+          <div className="bg-primary mx-auto mt-2" style={{ width: '40px', height: '4px' }}></div>
+        </div>
+        <div className="my-swiper-container">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, Mousewheel]}
+            spaceBetween={30}
+            slidesPerView={1}
+            mousewheel={true}
+            pagination={{ clickable: true }}
+            navigation={true}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            breakpoints={{ 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+            className="pb-5"
+          >
+            {projectData.map((proj) => (
+              <SwiperSlide key={proj.id} className="h-auto">
+                <ProjectCard proj={proj} /> 
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
 
-      {/* 自我介紹區塊 */}
-      <section id="about" className="vh-100 d-flex align-items-center bg-dark text-white">
-        <div className="container text-center px-4">
-          <h2 className="display-4 fw-bold">About Me</h2>
-          <p className="mt-4 lead text-white-50 max-w-md mx-auto">
-            擁有食品技師背景的我，將「品質管理」的 DNA 帶入網頁開發。
-            每一行代碼都經過嚴格審視，確保最終產出的產品兼具穩定性與美感。
-          </p>
+      {/* CTA Section */}
+      <section className="py-9 bg-dark text-white text-center">
+        <div className="container">
+          <h2 className="display-4 fw-bold mb-4">追求穩定，但不止於穩定。</h2>
+          <p className="lead text-white-50 mb-5">每一行代碼都經過品管檢視，確保您的數位產品不僅美觀，更加可靠。</p>
+          <Link to="/about" className="btn btn-primary rounded-pill px-5 py-3 fw-bold">深入瞭解我的技術實力</Link>
         </div>
       </section>
     </div>

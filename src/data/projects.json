@@ -4,7 +4,7 @@
     "title": "Boardreams",
     "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
     "url": "https://snoesugar.github.io/Boardreams-React/",
-    "tags": ["React", "Bootstrap 5", "RWD", "vite"]
+    "tags": ["React", "Bootstrap 5", "Swiper", "AOS", "RWD", "vite"]
   },
   {
     "id": "mofu",
@@ -39,6 +39,6 @@
     "title": "WorkWay",
     "desc": "以工程思維優化的職旅資訊平台，提供清晰的資訊分類。",
     "url": "https://snoesugar.github.io/homeworkWeek5/",
-    "tags": ["Bootstrap 5", "JavaScript", "jQuery"]
+    "tags": ["Bootstrap 5", "JavaScript", "GSAP"]
   }
 ]

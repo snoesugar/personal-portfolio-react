@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -8,6 +8,7 @@ const FrontLayout = () => {
 
   // 定義導覽項目
   const navItems = [
+    { name: "首頁", path: "/" },
     { name: "自我介紹", path: "/about" },
     { name: "作品集", path: "/portfolio" },
     { name: "技術細節", path: "/skills" }, // 可選，或改為你想放的項目
@@ -56,9 +57,14 @@ const FrontLayout = () => {
                   key={item.name}
                   ref={(el) => (linkRef.current[index] = el)}
                 >
-                  <Link className="nav-link px-3 py-2 mx-1" to={item.path}>
+                  <NavLink 
+                    className="nav-link px-3 py-2 mx-1" 
+                    to={item.path}
+                    // end 屬性確保只有完全匹配 "/" 時首頁才亮起，防止其他頁面也觸發首頁 active
+                    end={item.path === "/"} 
+                  >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
               {/* 亮點按鈕：聯絡我 */}
