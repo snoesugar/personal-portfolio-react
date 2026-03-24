@@ -175,15 +175,27 @@ html {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    &::after { font-size: 18px; font-weight: bold; }
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    opacity: 1;
+    transition: all 0.3s ease; // 這是關鍵，讓寬度變化平滑
   }
 
   .swiper-pagination-bullet-active {
-    background: var(--bs-primary); // 分頁點活耀顏色
-    width: 20px;
+    background: var(--bs-primary);
+    width: 24px; // 啟動時拉長
     border-radius: 5px;
+    // 加入一個輕微的進入動畫
+    animation: bullet-slide 0.3s ease-out;
   }
+}
+
+@keyframes bullet-slide {
+  0% { transform: scaleX(0.5); }
+  100% { transform: scaleX(1); }
 }
 
 /* ------ About ----- */
