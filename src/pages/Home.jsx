@@ -35,15 +35,15 @@ const BrowserMockup = ({ img, url }) => (
 const ProjectCard = ({ proj }) => {
   const placeholderImg = `${import.meta.env.BASE_URL}${proj.title}.png`;
   return (
-    <div className="h-100 d-flex">
+    <div className="h-100 w-100 d-flex">
       <div className="card project-card w-100 position-relative border-0 shadow-sm-hover">
         <div className="card-img-wrapper p-3 bg-light rounded-4">
           <BrowserMockup img={placeholderImg} url={proj.url} />
         </div>
         <div className="card-body p-4 pt-0 d-flex flex-column flex-grow-1">
-          <h4 className="project-title fw-bold mt-4 text-uppercase">{proj.title}</h4>
-          <p className="project-desc text-secondary small line-clamp-2 mb-3">{proj.desc}</p>
-          <div className="project-tags mb-4 d-flex flex-wrap gap-2">
+          <h4 className="fw-bold mt-4 text-uppercase">{proj.title}</h4>
+          <p className="text-secondary small line-clamp-2 mb-3">{proj.desc}</p>
+          <div className="mb-4 d-flex flex-wrap gap-2">
             {proj.tags.map(tag => <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal">{tag}</span>)}
           </div>
           <div className="mt-auto">
@@ -100,19 +100,19 @@ const Home = () => {
       {/* Hero Section */}
       <section className="vh-100 d-flex align-items-center justify-content-center">
         <div className="text-center hero-content px-3">
-          <span className="text-primary fw-bold tracking-widest mb-3 d-block small">CORE DEV & FOOD SCIENTIST</span>
-          <h1 className="display-1 fw-bold mb-4 tracking-tighter home-title">精密轉譯<br/>數位體驗</h1>
-          <p className="lead text-secondary max-w-lg mx-auto mb-5">
+          <span className="text-primary fw-bold mb-3 d-block small">CORE DEV & FOOD SCIENTIST</span>
+          <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
+          <p className="lead text-secondary mx-auto mb-5">
             擁有食品研發與品管背景的嚴謹工程師，擅長以系統化邏輯與數據思維，打造易於維護且兼具高品質的前端網頁。
           </p>
           <div className="d-flex gap-3 justify-content-center">
-            <a href="#portfolio" className="btn btn-dark rounded-pill px-5 py-2">精選作品庫</a>
-            <Link to="/about" className="btn btn-outline-dark rounded-pill px-5 py-2">我的轉職故事</Link>
+            <a href="#portfolio" className="btn btn-primary rounded-pill px-5 py-2">精選作品庫</a>
+            <Link to="/about" className="btn btn-outline-primary rounded-pill px-5 py-2">我的轉職故事</Link>
           </div>
         </div>
       </section>
 
-      {/* 核心價值區塊 (New!) */}
+      {/* 核心價值區塊 */}
       <section className="values-section py-6 bg-light">
         <div className="container">
           <div className="row g-4">
@@ -144,7 +144,7 @@ const Home = () => {
       {/* 作品集區塊 */}
       <section id="portfolio" className="container py-9 overflow-hidden">
         <div className="col-12 text-center mb-5">
-          <h2 className="display-5 fw-bold mt-3">Featured Works</h2>
+          <h2 className="display-5 fw-bold mt-3">作品集</h2>
           <div className="bg-primary mx-auto mt-2" style={{ width: '40px', height: '4px' }}></div>
         </div>
         <div className="my-swiper-container">

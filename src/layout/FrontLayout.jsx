@@ -11,7 +11,7 @@ const FrontLayout = () => {
     { name: "首頁", path: "/" },
     { name: "自我介紹", path: "/about" },
     { name: "作品集", path: "/portfolio" },
-    { name: "技術細節", path: "/skills" }, // 可選，或改為你想放的項目
+    { name: "技術細節", path: "/skills" }, 
   ];
 
   useEffect(() => {
@@ -38,11 +38,12 @@ const FrontLayout = () => {
           {/* Logo 區塊 */}
           <Link className="navbar-brand d-flex align-items-center" to="/">
             <img 
-              src={`${import.meta.env.BASE_URL}logo-aloha.svg`} 
+              src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="logo" 
-              style={{ height: '35px', marginRight: '10px' }} 
+              className="me-3"
+              style={{ height: '35px'}} 
             />
-            <span className="fw-bold tracking-wider" style={{ letterSpacing: '1px' }}>YU LIN Portfolio</span>
+            <span className="fw-bold text-spaced">YU LIN Portfolio</span>
           </Link>
           
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -67,12 +68,6 @@ const FrontLayout = () => {
                   </NavLink>
                 </li>
               ))}
-              {/* 亮點按鈕：聯絡我 */}
-              <li className="nav-item ms-lg-3" ref={(el) => (linkRef.current[navItems.length] = el)}>
-                <button className="btn btn-outline-dark rounded-pill px-4 btn-sm fw-bold">
-                  CONTACT
-                </button>
-              </li>
             </ul>
           </div>
         </div>
