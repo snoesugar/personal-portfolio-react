@@ -45,6 +45,6 @@
     "desc": "以工程思維優化的職旅資訊平台，提供清晰的資訊分類。",
     "url": "https://snoesugar.github.io/homeworkWeek5/",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek5",
-    "tags": ["Bootstrap 5", "JavaScript", "GSAP"]
+    "tags": ["Bootstrap 5", "JavaScript", "GSAP", "AOS"]
   }
 ]
