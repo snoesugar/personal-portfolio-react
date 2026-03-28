@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import projectData from "../data/projects.json";
@@ -39,45 +40,32 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
 
   return (
     <div className="col-md-6 col-lg-4 d-flex" ref={(el) => setCardRefs(el, index)}>
-      {/* 卡片本體：移除潛在的連結衝突 */}
       <div className="card project-card w-100 position-relative border-0 shadow-sm-hover bg-transparent">
         
-        {/* 1. 圖片區域：包裹連結，增加點擊範圍與視覺回饋 */}
-        <a 
-          href={proj.url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        {/* 修改這裡：將 <a> 換成 <Link>，並指向 piece/:id */}
+        <Link 
+          to={`/piece/${proj.id}`}  // 對應路由設定的 path: 'piece/:id'
           className="card-img-link d-block mb-3"
-          style={{ transition: 'transform 0.3s ease' }}
+          style={{ transition: 'transform 0.3s ease', cursor: 'pointer' }}
         >
           <div className="card-img-wrapper p-3 bg-light rounded-4 overflow-hidden">
             <BrowserMockup img={placeholderImg} url={proj.url} />
           </div>
-        </a>
+        </Link>
         
-        {/* 2. 內容區域：純文字與標籤，不具備連結功能 */}
         <div className="card-body p-0 d-flex flex-column flex-grow-1">
-          <h4 className="project-title fw-bold text-uppercase mb-2">{proj.title}</h4>
+          {/* 如果標題也想點擊進入詳情，也可以加 Link */}
+          <Link to={`/piece/${proj.id}`} className="text-decoration-none text-dark">
+            <h4 className="project-title fw-bold text-uppercase mb-2">{proj.title}</h4>
+          </Link>
+
           <p className="project-desc text-secondary small line-clamp-2 mb-3">
             {proj.desc}
           </p>
           
-          <div className="project-tags mb-4 d-flex flex-wrap gap-2">
-            {proj.tags.map(tag => (
-              <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal">
-                {tag}
-              </span>
-            ))}
-          </div>
-          
-          {/* 3. 按鈕區域：獨立按鈕連結 */}
+          {/* 保持原本的外部連結按鈕 */}
           <div className="d-flex gap-4 mt-auto">
-            <a 
-              href={proj.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn btn-primary btn-sm rounded-pill px-4 fw-bold"
-            >
+            <a href={proj.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
               Live Demo
             </a>
             <a 
