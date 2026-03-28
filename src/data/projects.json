@@ -5,7 +5,9 @@
     "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
     "url": "https://snoesugar.github.io/Boardreams-React/",
     "gitHubUrl":"https://github.com/snoesugar/Boardreams-React",
-    "tags": ["React", "Bootstrap 5", "Swiper", "AOS", "RWD", "vite"]
+    "tags": ["React", "Bootstrap 5", "Swiper", "AOS", "RWD", "vite"],
+    "motivation": "動機",
+    "function": "功能"
   },
   {
     "id": "mofu",
@@ -13,7 +15,9 @@
     "desc": "專為寵物飼主設計的日記應用，提供清晰的紀錄與可愛的視覺介面。",
     "url": "https://snoesugar.github.io/Mofu-Diary/",
     "gitHubUrl":"https://github.com/snoesugar/Mofu-Diary",
-    "tags": ["Bootstrap 5", "Chart.js", "RWD", "vite"]
+    "tags": ["Bootstrap 5", "Chart.js", "RWD", "vite"],
+    "motivation": "動機",
+    "function": "功能"
   },
   {
     "id": "petpet",
@@ -21,7 +25,9 @@
     "desc": "一站式寵物服務網，提供線上預約與服務展示。",
     "url": "https://snoesugar.github.io/PETPET-React/",
     "gitHubUrl":"https://github.com/snoesugar/PETPET-React",
-    "tags": ["React", "Bootstrap 5", "RWD"]
+    "tags": ["React", "Bootstrap 5", "RWD"],
+    "motivation": "動機",
+    "function": "功能"
   },
   {
     "id": "zobaa",
@@ -29,7 +35,9 @@
     "desc": "充滿現代感的旅遊網站，展示旅遊行程與動態地圖。",
     "url": "https://snoesugar.github.io/homeworkWeek8/",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek8",
-    "tags": ["Bootstrap 5", "JavaScript", "SASS"]
+    "tags": ["Bootstrap 5", "JavaScript", "SASS"],
+    "motivation": "動機",
+    "function": "功能"
   },
   {
     "id": "urbnstep",
@@ -37,7 +45,9 @@
     "desc": "簡潔、流暢的鞋子電商介面，強調產品目錄的互動性。",
     "url": "https://snoesugar.github.io/homeworkWeek3/index.html",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek3",
-    "tags": ["Bootstrap 5", "HTML5", "CSS3", "RWD"]
+    "tags": ["Bootstrap 5", "HTML5", "CSS3", "RWD"],
+    "motivation": "動機",
+    "function": "功能"
   },
   {
     "id": "workway",
@@ -45,6 +55,8 @@
     "desc": "以工程思維優化的職旅資訊平台，提供清晰的資訊分類。",
     "url": "https://snoesugar.github.io/homeworkWeek5/",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek5",
-    "tags": ["Bootstrap 5", "JavaScript", "GSAP", "AOS"]
+    "tags": ["Bootstrap 5", "JavaScript", "GSAP", "AOS"],
+    "motivation": "動機",
+    "function": "功能"
   }
 ]

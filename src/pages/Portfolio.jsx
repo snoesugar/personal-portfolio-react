@@ -92,36 +92,42 @@ const Portfolio = () => {
   };
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Hero 文字進場
-      gsap.from(".hero-content", {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      });
+  let ctx = gsap.context(() => {
+    // 1. 選取所有的作品卡片元素
+    const cards = cardRefs.current.filter(el => el !== null); // 確保沒有空值
 
-      // 作品卡片交錯進場
-      cardRefs.current.forEach((el) => {
-        gsap.fromTo(el, 
-          { y: 80, opacity: 0 }, 
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            }
-          }
-        );
-      });
-    }, mainRef);
+    if (cards.length === 0) return; // 安全檢查
 
-    return () => ctx.revert();
-  }, []);
+    // 2. 使用 fromTo 指令，並在其中設定 stagger 與 ScrollTrigger
+    gsap.fromTo(cards, 
+      // 初始狀態：在下方且透明
+      { 
+        y: 80, 
+        opacity: 0 
+      }, 
+      // 目標狀態與動畫設定
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        
+        // 關鍵核心：設定交錯時間 (每張卡片間隔 0.2 秒)
+        stagger: 0.2, 
+        
+        // 關鍵核心：將 ScrollTrigger 綁定在「整組卡片的容器」或「第一張卡片」上
+        scrollTrigger: {
+          trigger: ".row.g-5",      // 觸發目標設為卡片所在的 row 容器
+          start: "top 85%",        // 容器頂部到達視窗 85% 時觸發
+          toggleActions: "play none none none", // 只播放一次，不重複
+          // once: true,            // 或者使用 once: true 確保只跑一次
+        }
+      }
+    );
+  }, mainRef);
+
+  return () => ctx.revert();
+}, []);
 
   return (
     <div ref={mainRef} className="container-fluid p-0 bg-white">
