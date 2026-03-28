@@ -3,11 +3,12 @@
     "id": "boardreams",
     "title": "Boardreams",
     "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
+    "images": ["public/Boardreams-1.png", "public/Boardreams-2.png", "public/Boardreams-3.png", "public/Boardreams-4.png", "public/Boardreams-5.png", "public/Boardreams-6.png"],
     "url": "https://snoesugar.github.io/Boardreams-React/",
-    "gitHubUrl":"https://github.com/snoesugar/Boardreams-React",
-    "tags": ["React", "Bootstrap 5", "Swiper", "AOS", "RWD", "vite"],
-    "motivation": "動機",
-    "function": "功能"
+    "gitHubUrl": "https://github.com/snoesugar/Boardreams-React",
+    "tags": ["React", "Redux Toolkit", "React Hook Form", "Bootstrap 5", "Vite"],
+    "motivation": "觀察到多數電商過於制式化，無法體現桌遊特有的「社交溫度」。本專案旨在透過「金、黑」高對比視覺與遊戲化登入介面，建立從數位跳轉至現實社交的橋樑，強化人際互動。",
+    "function": "1. 高效能元件封裝：\n• 自定義 Message Hooks 與 Toast/Modal 元件，提升開發效率與介面一致性。\n• 整合 SweetAlert2 處理關鍵刪除動作，強化視覺警示，降低使用者誤操作的風險。\n2. 狀態管理：\n• 運用 Redux Toolkit (RTK) 處理跨元件與跨頁面的資料傳遞（如購物車數量、即時訊息），確保使用者在不同分頁間切換時，資訊能維持即時且同步的狀態。\n3. 互動驗證：\n• 導入 React Hook Form 進行表單邏輯處理，實作即時驗證與錯誤回饋機制，有效提升填寫正確率並優化使用者留存。\n• 使用 React Router 建構單頁應用（SPA），並規劃完整的前台購物流程與後台管理系統。\n4. 品質管控：\n• 嚴格執行 ESLint 規範進行代碼重構，確保專案架構易於維護，並在開發階段即時攔截潛在邏輯錯誤。"
   },
   {
     "id": "mofu",

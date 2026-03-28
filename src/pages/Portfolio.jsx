@@ -42,9 +42,8 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
     <div className="col-md-6 col-lg-4 d-flex" ref={(el) => setCardRefs(el, index)}>
       <div className="card project-card w-100 position-relative border-0 shadow-sm-hover bg-transparent">
         
-        {/* 修改這裡：將 <a> 換成 <Link>，並指向 piece/:id */}
         <Link 
-          to={`/piece/${proj.id}`}  // 對應路由設定的 path: 'piece/:id'
+          to={`/piece/${proj.id}`} 
           className="card-img-link d-block mb-3"
           style={{ transition: 'transform 0.3s ease', cursor: 'pointer' }}
         >

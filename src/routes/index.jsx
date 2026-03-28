@@ -4,7 +4,7 @@ import Home from '../pages/Home'
 import About from "../pages/About"
 import Skills from "../pages/Skills"
 import Portfolio from "../pages/Portfolio"
-import Piece from "../pages/piece"
+import Piece from "../pages/Piece"
 import NotFound from "../pages/NotFound"
 
 const router = createHashRouter([
