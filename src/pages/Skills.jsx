@@ -83,7 +83,6 @@ const Skills = () => {
               </ul>
               <div className="d-flex gap-2 mt-4 pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
-                <span className="badge bg-light text-dark fw-normal border">PETPET</span>
               </div>
             </div>
           </div>
@@ -117,7 +116,8 @@ const Skills = () => {
                 <li><i className="bi bi-check2-circle text-info me-2"></i><strong>ESLint / Prettier</strong> 強制執行代碼規範，降低維護門檻。</li>
                 <li><i className="bi bi-check2-circle text-info me-2"></i><strong>GH-Pages / Deployment</strong> 自動化部署流程建置與排錯。</li>
               </ul>
-              <div className="d-flex gap-2 mt-4 pt-3 border-top">
+              <div className="d-flex gap-2 flex-wrap mt-4 pt-3 border-top">
+                <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
                 <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
                 <span className="badge bg-light text-dark fw-normal border">Portfolio</span>
               </div>
