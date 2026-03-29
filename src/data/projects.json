@@ -8,7 +8,9 @@
     "gitHubUrl": "https://github.com/snoesugar/Boardreams-React",
     "tags": ["React", "Redux Toolkit", "React Hook Form", "Bootstrap 5", "Vite"],
     "motivation": "觀察到多數電商過於制式化，無法體現桌遊特有的「社交溫度」。本專案旨在透過「金、黑」高對比視覺與遊戲化登入介面，建立從數位跳轉至現實社交的橋樑，強化人際互動。",
-    "function": "1. 資料串接與管理：\n• 透過 RESTful API 實作完整購物流程，包含產品清單動態渲染、購物車即時緩存與結帳系統，確保資料流之正確性。\n2. 權限控管與後台系統：\n• 建構具備身分驗證（Authentication）機制的管理後台，實作產品上架、訂單狀態追蹤及優惠券發送系統，展現處理複雜業務邏輯之能力。\n3. 高效能元件封裝：\n• 自定義 Message Hooks 與 Toast/Modal 元件，並整合 SweetAlert2 處理關鍵刪除動作，強化視覺警示，降低使用者誤操作的風險。\n4. 狀態管理與驗證：\n• 運用 Redux Toolkit (RTK) 處理跨元件與跨頁面的資料傳遞（如購物車數量、即時訊息），確保使用者在不同分頁間切換時，資訊能維持即時且同步的狀態。\n• 導入 React Hook Form 進行表單邏輯處理，實作即時驗證與錯誤回饋機制，有效提升填寫正確率並優化使用者留存。\n5. 品質管控：\n• 使用 React Router 建構單頁應用（SPA），並規劃完整的前台購物流程與後台管理系統。\n• 嚴格執行 ESLint 規範進行代碼重構，確保專案架構易於維護，並在開發階段即時攔截潛在邏輯錯誤。"
+    "function": "1. 資料串接與管理：\n• 透過 RESTful API 實作完整購物流程，包含產品清單動態渲染、購物車即時緩存與結帳系統，確保資料流之正確性。\n2. 權限控管與後台系統：\n• 建構具備身分驗證（Authentication）機制的管理後台，實作產品上架、訂單狀態追蹤及優惠券發送系統，展現處理複雜業務邏輯之能力。\n3. 高效能元件封裝：\n• 自定義 Message Hooks 與 Toast/Modal 元件，並整合 SweetAlert2 處理關鍵刪除動作，強化視覺警示，降低使用者誤操作的風險。\n4. 狀態管理與驗證：\n• 運用 Redux Toolkit (RTK) 處理跨元件與跨頁面的資料傳遞（如購物車數量、即時訊息），確保使用者在不同分頁間切換時，資訊能維持即時且同步的狀態。\n• 導入 React Hook Form 進行表單邏輯處理，實作即時驗證與錯誤回饋機制，有效提升填寫正確率並優化使用者留存。\n5. 品質管控：\n• 使用 React Router 建構單頁應用（SPA），並規劃完整的前台購物流程與後台管理系統。\n• 嚴格執行 ESLint 規範進行代碼重構，確保專案架構易於維護，並在開發階段即時攔截潛在邏輯錯誤。",
+    "challenge": "隨著產品數量增加，購物車的狀態同步（State Sync）變得異常複雜，且在重新整理頁面後資料容易遺失。",
+    "overcome": "* 導入 Redux Toolkit (RTK) 統一管理全域狀態，解決了 Props Drilling 的問題。\n• 實作 LocalStorage 持久化機制，結合 useEffect 確保使用者重啟瀏覽器後仍能恢復購物清單。\n• 開發自定義 useCart Hook，將複雜的計算邏輯（如折扣價、小計）與 UI 元件分離，提升代碼可讀性。"
   },
   {
     "id": "mofu",
@@ -19,7 +21,9 @@
     "gitHubUrl": "https://github.com/snoesugar/Mofu-Diary",
     "tags": ["Bootstrap 5", "Chart.js", "Vite", "Git Collaboration", "RWD"],
     "motivation": "針對現代人高壓生活，市場雖有冥想與日記 App，但門檻較高且缺乏長期誘因。Mofu-Diary 透過「輕量化、療癒感」的價值主張，結合貓咪養成與成就系統，降低正念練習的進入門檻，將枯燥的紀錄轉化為具吸引力的放鬆旅程。",
-    "function": "1. 技術統整與規範：\n• 負責定義專案視覺變數（顏色、間距、字體），確保團隊協作產出之介面高度一致。\n2. 數據視覺化實作：\n• 主導「日記總覽」與「心情趨勢」模組，利用 Chart.js 製作客製化圖表，協助用戶洞察長期情緒變化。\n3. 互動功能開發：\n• 實作關鍵切版與標籤（Tag）搜尋功能，優化資訊檢索效率。\n4. 團隊管理與版本控制：\n• 擔任技術負責人，負責 PR 審核、衝突排解與版本回溯管理，確保專案進度穩定，並代表團隊進行技術成果演示與報告。"
+    "function": "1. 技術統整與規範：\n• 負責定義專案視覺變數（顏色、間距、字體），確保團隊協作產出之介面高度一致。\n2. 數據視覺化實作：\n• 主導「日記總覽」與「心情趨勢」模組，利用 Chart.js 製作客製化圖表，協助用戶洞察長期情緒變化。\n3. 互動功能開發：\n• 實作關鍵切版與標籤（Tag）搜尋功能，優化資訊檢索效率。\n4. 團隊管理與版本控制：\n• 擔任技術負責人，負責 PR 審核、衝突排解與版本回溯管理，確保專案進度穩定，並代表團隊進行技術成果演示與報告。",
+    "challenge": "團隊成員在開發不同功能頁面時，CSS 類名重複導致樣式互相覆蓋（Style Pollution），且多人協作時常產生嚴重的 Git 衝突。",
+    "overcome": "* 制定設計系統：\n 擔任技術統籌，規範 SCSS 變數與命名規則（BEM），並建立通用的 UI Utilities。\n• Git 流程標準化：\n 實施 Git Flow 與 PR 審核機制，強制執行代碼檢查後才進行 Merge，成功將專案後期的衝突率降低了 80%。\n• 技術突破：\n 解決了 Chart.js 在不同螢幕尺寸下渲染縮放比例不一致的問題，達成高品質的 RWD 數據展示。"
   },
   {
     "id": "petpet",
@@ -30,7 +34,9 @@
     "gitHubUrl":"https://github.com/snoesugar/PETPET-React",
     "tags": ["React", "React Router", "Bootstrap 5", "RWD", "ESLint"],
     "motivation": "旨在解決飼主尋找適當寵物服務時資訊破碎的問題。透過整合「品種、服務類型、地區」三大核心維度，建立一個直覺的媒合平台，讓飼主能快速為毛小孩找到合適的寄宿、美容或代遛保姆，縮短決策路徑並提升預約便利性。",
-    "function": "1. 精準篩選與預約系統：\n• 實作多條件過濾功能，並整合 DatePicker 建立直覺的預約日期選擇器，確保預約時程之準確性。\n2. 高度元件化架構：\n• 將 Navbar、Footer 及服務項目卡片（Service Cards）進行模組化封裝，大幅提升代碼複用性與跨頁面樣式的一致性。\n3. 表單驗證與使用者留存：\n• 針對預約流程導入即時驗證機制與錯誤回饋，有效引導用戶完成填寫，降低轉換流失率。\n3. 現代化開發流程：\n• 使用 React Router 建構單頁應用（SPA）確保頁面切換流暢，並嚴格執行 ESLint 規範進行重構，確保專案架構之健壯性與可維護性。"
+    "function": "1. 精準篩選與預約系統：\n• 實作多條件過濾功能，並整合 DatePicker 建立直覺的預約日期選擇器，確保預約時程之準確性。\n2. 高度元件化架構：\n• 將 Navbar、Footer 及服務項目卡片（Service Cards）進行模組化封裝，大幅提升代碼複用性與跨頁面樣式的一致性。\n3. 表單驗證與使用者留存：\n• 針對預約流程導入即時驗證機制與錯誤回饋，有效引導用戶完成填寫，降低轉換流失率。\n3. 現代化開發流程：\n• 使用 React Router 建構單頁應用（SPA）確保頁面切換流暢，並嚴格執行 ESLint 規範進行重構，確保專案架構之健壯性與可維護性。",
+    "challenge": "預約流程中的表單輸入極為瑣碎（日期、品種、服務類別），使用者常因漏填或格式錯誤而放棄預約，導致轉換率低下。",
+    "overcome": "* 即時驗證：\n 整合 React Hook Form 實作動態表單驗證，讓使用者在填寫當下即能獲得 invalid-feedback。\n• 組件解耦：\n 封裝 DatePicker 與 SearchFilter 為獨立高複用組件，並透過單一資料流（One-way Data Flow）確保各篩選條件間的連動邏輯清晰、不產生閉環 Bug。"
   },
   {
     "id": "zobaa",
@@ -41,7 +47,9 @@
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek8",
     "tags": ["JavaScript", "SASS/SCSS", "Bootstrap 5", "EJS", "Gulp"],
     "motivation": "「用旅行，收藏世界的樣子。」ZOBAA 的開發初衷是為旅客打造一個直覺且高效的決策環境。透過整合熱門景點、即時比價與獨家精選行程（十大推薦、交通優惠、一日遊及美食預約），解決旅遊資訊散亂的痛點，實現「從探索到訂購」的流暢體驗。",
-    "function": "1. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 組織樣式檔案，大幅提升大型專案 CSS 的可讀性與擴充性，並透過客製化 Bootstrap 變數與 _utilities 建立統一的品牌視覺語彙。\n2. 樣板引擎與模組化：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化引入，提升開發效率並降低維護成本。\n3. 動態資料渲染與交互：\n• 使用原生 JavaScript 處理熱門行程與多樣化類別（票券、美食、交通）的動態展現，模擬真實電商平台的篩選與訂購邏輯。\n4. 自動化開發流程：\n• 整合 Gulp 或相關建構工具進行樣式編譯與檔案壓縮，確保前端資源加載效能與開發流程的標準化。"
+    "function": "1. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 組織樣式檔案，大幅提升大型專案 CSS 的可讀性與擴充性，並透過客製化 Bootstrap 變數與 _utilities 建立統一的品牌視覺語彙。\n2. 樣板引擎與模組化：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化引入，提升開發效率並降低維護成本。\n3. 動態資料渲染與交互：\n• 使用原生 JavaScript 處理熱門行程與多樣化類別（票券、美食、交通）的動態展現，模擬真實電商平台的篩選與訂購邏輯。\n4. 自動化開發流程：\n• 整合 Gulp 或相關建構工具進行樣式編譯與檔案壓縮，確保前端資源加載效能與開發流程的標準化。",
+    "challenge": "加入多個 GSAP 與 ScrollTrigger 動效後，發現網頁在行動端出現卡頓（Jank），且部分動畫觸發時機點與視覺設計不符。",
+    "overcome": "* 模組化重構：\n 導入 EJS 樣板引擎 與 SCSS 7-1 架構，將重複的 HTML 片段（Header/Footer/Card）進行組件化抽離。\n• 工程化佈署：\n 透過 Vite 的自動化打包機制處理多頁面（Multi-page）資源路徑問題，成功將開發效率提升，並確保靜態資源能正確部署至 GitHub Pages。"
   },
   {
     "id": "urbnstep",
@@ -52,7 +60,9 @@
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek3",
     "tags": ["HTML5", "CSS3/SCSS", "Bootstrap 5", "EJS", "RWD"],
     "motivation": "URBNSTEP 致力於打造「風格與功能並存」的鞋履體驗。開發初衷是為了建立一個能傳遞「城市語言」的電商平台，透過高品質的視覺呈現與品牌敘事，捕捉都市生活的態度與節奏，將鞋履從純粹的商品轉化為穿戴者的自我表達，縮短品牌與消費者間的情感距離。",
-    "function": "1. 模組化開發實踐：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化封裝，大幅優化維護成本與開發效率。\n2. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 嚴謹組織樣式檔案，確保 CSS 架構之清晰度與擴充性，並達成像素級（Pixel-perfect）的精確切版實力。\n3. 使用者互動功能：\n• 實作「我的最愛」收藏功能（Like System）以強化使用者留存，並整合 Breadcrumb（麵包屑）導航元件，優化大型產品目錄的檢索路徑與 SEO 友善度。\n4. 跨平台適應性：\n• 基於 Bootstrap 5 進行深度客製化開發，確保在不同行動裝置與螢幕尺寸下，均能維持一致的高質感品牌視覺體驗。"
+    "function": "1. 模組化開發實踐：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化封裝，大幅優化維護成本與開發效率。\n2. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 嚴謹組織樣式檔案，確保 CSS 架構之清晰度與擴充性，並達成像素級（Pixel-perfect）的精確切版實力。\n3. 使用者互動功能：\n• 實作「我的最愛」收藏功能（Like System）以強化使用者留存，並整合 Breadcrumb（麵包屑）導航元件，優化大型產品目錄的檢索路徑與 SEO 友善度。\n4. 跨平台適應性：\n• 基於 Bootstrap 5 進行深度客製化開發，確保在不同行動裝置與螢幕尺寸下，均能維持一致的高質感品牌視覺體驗。",
+    "challenge": "為了追求「像素級（Pixel-perfect）」的視覺感，大量的切版細節導致 SASS 程式碼難以追蹤，且在特定螢幕尺寸下排版容易走鐘。",
+    "overcome": "* 樣式系統化：\n 建立專屬的 SASS Mixins 庫，集中管理常用的排版與斷點邏輯，大幅減少重複代碼。\n• 極致 RWD：\n 使用 Flexbox 與 CSS Grid 混合佈局，並搭配 clamp() 函數處理流體字體與間距，達成在各種螢幕比例下皆能維持雜誌級的排版品質。"
   },
   {
     "id": "workway",
@@ -63,6 +73,8 @@
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek5",
     "tags": ["GSAP", "ScrollTrigger", "EJS", "Bootstrap 5", "SCSS"],
     "motivation": "「職旅 WorkWay」旨在陪伴求職者探索未完成的夢。開發動機是為了解決職涯轉型與自由工作初期的迷惘與痛點，透過匯集實戰經驗豐富的專家，將「過來人的挑戰」轉化為「可落實的引導」，建立一個具備情感溫度且資訊透明的專業顧問媒合環境。",
-    "function": "1. 進階動態交互實作：\n• 運用 GSAP 核心技術，整合 SplitText 處理文字特效，並結合 ScrollTrigger 打造隨視窗捲動的沉浸式卡片動畫，大幅提升網頁的視覺層次與專業度。\n2. 系統化架構設計：\n• 導入 SCSS 7-1 Pattern 管理複雜樣式，並利用 EJS 進行組件化開發，將 Navbar 與 Footer 等重複性元素進行模組化封裝，降低維護成本。\n3. 嚴謹的表單互動：\n• 在聯絡與預約頁面整合 DatePicker 套件，並運用 Bootstrap 的 `invalid-feedback` 實作表單即時驗證機制，確保資料輸入的準確性並優化用戶填寫體驗。\n4. 精確切版：\n• 延續高品質的切版技術，確保複雜的動畫佈局在各類螢幕尺寸下均能維持穩定的響應式（RWD）表現與優異的渲染效能。"
+    "function": "1. 進階動態交互實作：\n• 運用 GSAP 核心技術，整合 SplitText 處理文字特效，並結合 ScrollTrigger 打造隨視窗捲動的沉浸式卡片動畫，大幅提升網頁的視覺層次與專業度。\n2. 系統化架構設計：\n• 導入 SCSS 7-1 Pattern 管理複雜樣式，並利用 EJS 進行組件化開發，將 Navbar 與 Footer 等重複性元素進行模組化封裝，降低維護成本。\n3. 嚴謹的表單互動：\n• 在聯絡與預約頁面整合 DatePicker 套件，並運用 Bootstrap 的 `invalid-feedback` 實作表單即時驗證機制，確保資料輸入的準確性並優化用戶填寫體驗。\n4. 精確切版：\n• 延續高品質的切版技術，確保複雜的動畫佈局在各類螢幕尺寸下均能維持穩定的響應式（RWD）表現與優異的渲染效能。",
+    "challenge": "加入多個 GSAP 與 ScrollTrigger 動效後，發現網頁在行動端出現卡頓（Jank），且部分動畫觸發時機點與視覺設計不符。",
+    "overcome": "* 效能優化：\n 利用 gsap.context() 進行動畫生命週期管理，避免元件卸載後產生記憶體洩漏。\n• 渲染提速：\n 使用 will-change: transform 啟動硬體加速，並精確調整 start 與 end 的動態數值，確保在各種捲動速度下皆能精準觸發。"
   }
 ]

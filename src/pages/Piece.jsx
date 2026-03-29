@@ -88,6 +88,31 @@ const Piece = () => {
           </p>
         </div>
 
+        {/* --- 挑戰與克服整合區塊 --- */}
+        <div className="mb-4 p-4 rounded-4 bg-primary-subtle bg-opacity-10 border border-primary border-opacity-10">
+          <div className="mb-3">
+            <p className="fw-bold text-dark mb-2 d-flex align-items-center">
+              <i className="bi bi-exclamation-triangle-fill text-danger me-2"></i>
+              面臨挑戰
+            </p>
+            <p className="text-secondary small lh-lg mb-0" style={{ whiteSpace: 'pre-line' }}>
+              {project.challenge}
+            </p>
+          </div>
+
+          <hr className="my-3 opacity-10" />
+
+          <div>
+            <p className="fw-bold text-dark mb-2 d-flex align-items-center">
+              <i className="bi bi-check-circle-fill text-success me-2"></i>
+              解決方案
+            </p>
+            <p className="text-secondary small lh-lg mb-0" style={{ whiteSpace: 'pre-line' }}>
+              {project.overcome}
+            </p>
+          </div>
+        </div>
+
         <div className="mb-4">
           <p className="fw-bold mb-2">技術標籤：</p>
           <div className="d-flex flex-wrap gap-2">
