@@ -52,7 +52,7 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
           </div>
         </Link>
         
-        <div className="card-body p-0 d-flex flex-column flex-grow-1">
+        <div className="card-body p-2 d-flex flex-column flex-grow-1">
           {/* 如果標題也想點擊進入詳情，也可以加 Link */}
           <Link to={`/piece/${proj.id}`} className="text-decoration-none text-dark">
             <h4 className="project-title fw-bold text-uppercase mb-2">{proj.title}</h4>
