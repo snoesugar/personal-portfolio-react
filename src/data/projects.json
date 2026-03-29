@@ -3,61 +3,66 @@
     "id": "boardreams",
     "title": "Boardreams",
     "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
-    "images": ["public/Boardreams-1.png", "public/Boardreams-2.png", "public/Boardreams-3.png", "public/Boardreams-4.png", "public/Boardreams-5.png", "public/Boardreams-6.png"],
+    "images": ["Boardreams-1.png", "Boardreams-2.png", "Boardreams-3.png", "Boardreams-4.png", "Boardreams-5.png", "Boardreams-6.png"],
     "url": "https://snoesugar.github.io/Boardreams-React/",
     "gitHubUrl": "https://github.com/snoesugar/Boardreams-React",
     "tags": ["React", "Redux Toolkit", "React Hook Form", "Bootstrap 5", "Vite"],
     "motivation": "觀察到多數電商過於制式化，無法體現桌遊特有的「社交溫度」。本專案旨在透過「金、黑」高對比視覺與遊戲化登入介面，建立從數位跳轉至現實社交的橋樑，強化人際互動。",
-    "function": "1. 高效能元件封裝：\n• 自定義 Message Hooks 與 Toast/Modal 元件，提升開發效率與介面一致性。\n• 整合 SweetAlert2 處理關鍵刪除動作，強化視覺警示，降低使用者誤操作的風險。\n2. 狀態管理：\n• 運用 Redux Toolkit (RTK) 處理跨元件與跨頁面的資料傳遞（如購物車數量、即時訊息），確保使用者在不同分頁間切換時，資訊能維持即時且同步的狀態。\n3. 互動驗證：\n• 導入 React Hook Form 進行表單邏輯處理，實作即時驗證與錯誤回饋機制，有效提升填寫正確率並優化使用者留存。\n• 使用 React Router 建構單頁應用（SPA），並規劃完整的前台購物流程與後台管理系統。\n4. 品質管控：\n• 嚴格執行 ESLint 規範進行代碼重構，確保專案架構易於維護，並在開發階段即時攔截潛在邏輯錯誤。"
+    "function": "1. 資料串接與管理：\n• 透過 RESTful API 實作完整購物流程，包含產品清單動態渲染、購物車即時緩存與結帳系統，確保資料流之正確性。\n2. 權限控管與後台系統：\n• 建構具備身分驗證（Authentication）機制的管理後台，實作產品上架、訂單狀態追蹤及優惠券發送系統，展現處理複雜業務邏輯之能力。\n3. 高效能元件封裝：\n• 自定義 Message Hooks 與 Toast/Modal 元件，並整合 SweetAlert2 處理關鍵刪除動作，強化視覺警示，降低使用者誤操作的風險。\n4. 狀態管理與驗證：\n• 運用 Redux Toolkit (RTK) 處理跨元件與跨頁面的資料傳遞（如購物車數量、即時訊息），確保使用者在不同分頁間切換時，資訊能維持即時且同步的狀態。\n• 導入 React Hook Form 進行表單邏輯處理，實作即時驗證與錯誤回饋機制，有效提升填寫正確率並優化使用者留存。\n5. 品質管控：\n• 使用 React Router 建構單頁應用（SPA），並規劃完整的前台購物流程與後台管理系統。\n• 嚴格執行 ESLint 規範進行代碼重構，確保專案架構易於維護，並在開發階段即時攔截潛在邏輯錯誤。"
   },
   {
     "id": "mofu",
     "title": "Mofu-Diary",
-    "desc": "專為寵物飼主設計的日記應用，提供清晰的紀錄與可愛的視覺介面。",
+    "desc": "專為飼主與壓力族群設計的療癒系日記應用，結合數據追蹤與遊戲化養成機制。",
+    "images": ["mofu-1.png", "mofu-2.png", "mofu-3.png"],
     "url": "https://snoesugar.github.io/Mofu-Diary/",
-    "gitHubUrl":"https://github.com/snoesugar/Mofu-Diary",
-    "tags": ["Bootstrap 5", "Chart.js", "RWD", "vite"],
-    "motivation": "動機",
-    "function": "功能"
+    "gitHubUrl": "https://github.com/snoesugar/Mofu-Diary",
+    "tags": ["Bootstrap 5", "Chart.js", "Vite", "Git Collaboration", "RWD"],
+    "motivation": "針對現代人高壓生活，市場雖有冥想與日記 App，但門檻較高且缺乏長期誘因。Mofu-Diary 透過「輕量化、療癒感」的價值主張，結合貓咪養成與成就系統，降低正念練習的進入門檻，將枯燥的紀錄轉化為具吸引力的放鬆旅程。",
+    "function": "1. 技術統整與規範：\n• 負責定義專案視覺變數（顏色、間距、字體），確保團隊協作產出之介面高度一致。\n2. 數據視覺化實作：\n• 主導「日記總覽」與「心情趨勢」模組，利用 Chart.js 製作客製化圖表，協助用戶洞察長期情緒變化。\n3. 互動功能開發：\n• 實作關鍵切版與標籤（Tag）搜尋功能，優化資訊檢索效率。\n4. 團隊管理與版本控制：\n• 擔任技術負責人，負責 PR 審核、衝突排解與版本回溯管理，確保專案進度穩定，並代表團隊進行技術成果演示與報告。"
   },
   {
     "id": "petpet",
     "title": "PETPET",
     "desc": "一站式寵物服務網，提供線上預約與服務展示。",
+    "images": ["PETPET-1.png", "PETPET-2.png", "PETPET-3.png", "PETPET-4.png", "PETPET-5.png"],
     "url": "https://snoesugar.github.io/PETPET-React/",
     "gitHubUrl":"https://github.com/snoesugar/PETPET-React",
-    "tags": ["React", "Bootstrap 5", "RWD"],
-    "motivation": "動機",
-    "function": "功能"
+    "tags": ["React", "React Router", "Bootstrap 5", "RWD", "ESLint"],
+    "motivation": "旨在解決飼主尋找適當寵物服務時資訊破碎的問題。透過整合「品種、服務類型、地區」三大核心維度，建立一個直覺的媒合平台，讓飼主能快速為毛小孩找到合適的寄宿、美容或代遛保姆，縮短決策路徑並提升預約便利性。",
+    "function": "1. 精準篩選與預約系統：\n• 實作多條件過濾功能，並整合 DatePicker 建立直覺的預約日期選擇器，確保預約時程之準確性。\n2. 高度元件化架構：\n• 將 Navbar、Footer 及服務項目卡片（Service Cards）進行模組化封裝，大幅提升代碼複用性與跨頁面樣式的一致性。\n3. 表單驗證與使用者留存：\n• 針對預約流程導入即時驗證機制與錯誤回饋，有效引導用戶完成填寫，降低轉換流失率。\n3. 現代化開發流程：\n• 使用 React Router 建構單頁應用（SPA）確保頁面切換流暢，並嚴格執行 ESLint 規範進行重構，確保專案架構之健壯性與可維護性。"
   },
   {
     "id": "zobaa",
     "title": "ZOBAA",
     "desc": "充滿現代感的旅遊網站，展示旅遊行程與動態地圖。",
+    "images": ["zobaa-1.png", "zobaa-2.png", "zobaa-3.png", "zobaa-4.png", "zobaa-5.png"],
     "url": "https://snoesugar.github.io/homeworkWeek8/",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek8",
-    "tags": ["Bootstrap 5", "JavaScript", "SASS"],
-    "motivation": "動機",
-    "function": "功能"
+    "tags": ["JavaScript", "SASS/SCSS", "Bootstrap 5", "EJS", "Gulp"],
+    "motivation": "「用旅行，收藏世界的樣子。」ZOBAA 的開發初衷是為旅客打造一個直覺且高效的決策環境。透過整合熱門景點、即時比價與獨家精選行程（十大推薦、交通優惠、一日遊及美食預約），解決旅遊資訊散亂的痛點，實現「從探索到訂購」的流暢體驗。",
+    "function": "1. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 組織樣式檔案，大幅提升大型專案 CSS 的可讀性與擴充性，並透過客製化 Bootstrap 變數與 _utilities 建立統一的品牌視覺語彙。\n2. 樣板引擎與模組化：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化引入，提升開發效率並降低維護成本。\n3. 動態資料渲染與交互：\n• 使用原生 JavaScript 處理熱門行程與多樣化類別（票券、美食、交通）的動態展現，模擬真實電商平台的篩選與訂購邏輯。\n4. 自動化開發流程：\n• 整合 Gulp 或相關建構工具進行樣式編譯與檔案壓縮，確保前端資源加載效能與開發流程的標準化。"
   },
   {
     "id": "urbnstep",
     "title": "URBNSTEP",
     "desc": "簡潔、流暢的鞋子電商介面，強調產品目錄的互動性。",
+    "images": ["urbnstep-1.png", "urbnstep-2.png", "urbnstep-3.png", "urbnstep-4.png", "urbnstep-5.png"],
     "url": "https://snoesugar.github.io/homeworkWeek3/index.html",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek3",
-    "tags": ["Bootstrap 5", "HTML5", "CSS3", "RWD"],
-    "motivation": "動機",
-    "function": "功能"
+    "tags": ["HTML5", "CSS3/SCSS", "Bootstrap 5", "EJS", "RWD"],
+    "motivation": "URBNSTEP 致力於打造「風格與功能並存」的鞋履體驗。開發初衷是為了建立一個能傳遞「城市語言」的電商平台，透過高品質的視覺呈現與品牌敘事，捕捉都市生活的態度與節奏，將鞋履從純粹的商品轉化為穿戴者的自我表達，縮短品牌與消費者間的情感距離。",
+    "function": "1. 模組化開發實踐：\n• 運用 EJS (Embedded JavaScript templates) 實作組件化開發，將 Navbar、Footer 等重複元素進行模組化封裝，大幅優化維護成本與開發效率。\n2. 進階樣式架構管理：\n• 導入 SCSS 7-1 Pattern 嚴謹組織樣式檔案，確保 CSS 架構之清晰度與擴充性，並達成像素級（Pixel-perfect）的精確切版實力。\n3. 使用者互動功能：\n• 實作「我的最愛」收藏功能（Like System）以強化使用者留存，並整合 Breadcrumb（麵包屑）導航元件，優化大型產品目錄的檢索路徑與 SEO 友善度。\n4. 跨平台適應性：\n• 基於 Bootstrap 5 進行深度客製化開發，確保在不同行動裝置與螢幕尺寸下，均能維持一致的高質感品牌視覺體驗。"
   },
   {
     "id": "workway",
     "title": "WorkWay",
     "desc": "以工程思維優化的職旅資訊平台，提供清晰的資訊分類。",
+    "images": ["workway-1.png", "workway-2.png", "workway-3.png", "workway-4.png"],
     "url": "https://snoesugar.github.io/homeworkWeek5/",
     "gitHubUrl":"https://github.com/snoesugar/homeworkWeek5",
-    "tags": ["Bootstrap 5", "JavaScript", "GSAP", "AOS"],
-    "motivation": "動機",
-    "function": "功能"
+    "tags": ["GSAP", "ScrollTrigger", "EJS", "Bootstrap 5", "SCSS"],
+    "motivation": "「職旅 WorkWay」旨在陪伴求職者探索未完成的夢。開發動機是為了解決職涯轉型與自由工作初期的迷惘與痛點，透過匯集實戰經驗豐富的專家，將「過來人的挑戰」轉化為「可落實的引導」，建立一個具備情感溫度且資訊透明的專業顧問媒合環境。",
+    "function": "1. 進階動態交互實作：\n• 運用 GSAP 核心技術，整合 SplitText 處理文字特效，並結合 ScrollTrigger 打造隨視窗捲動的沉浸式卡片動畫，大幅提升網頁的視覺層次與專業度。\n2. 系統化架構設計：\n• 導入 SCSS 7-1 Pattern 管理複雜樣式，並利用 EJS 進行組件化開發，將 Navbar 與 Footer 等重複性元素進行模組化封裝，降低維護成本。\n3. 嚴謹的表單互動：\n• 在聯絡與預約頁面整合 DatePicker 套件，並運用 Bootstrap 的 `invalid-feedback` 實作表單即時驗證機制，確保資料輸入的準確性並優化用戶填寫體驗。\n4. 精確切版：\n• 延續高品質的切版技術，確保複雜的動畫佈局在各類螢幕尺寸下均能維持穩定的響應式（RWD）表現與優異的渲染效能。"
   }
 ]

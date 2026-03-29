@@ -58,7 +58,7 @@ const Piece = () => {
                 src={img}
                 alt={`thumb-${index}`}
                 className={`img-fluid rounded-2 object-fit-cover w-100 h-100 ${
-                  mainImage === img ? 'border border-2 border-primary' : 'opacity-75'
+                  mainImage === img ? 'border border-2 border-primary' : 'border border-2 opacity-75'
                 }`}
               />
             </button>
@@ -72,19 +72,18 @@ const Piece = () => {
         <h4 className="fw-bold mb-3">專案開發核心</h4>
         <hr className="opacity-10" />
         
-        <div className="mb-4">
-          <p className="fw-bold text-primary mb-2">
-            <i className="bi bi-lightbulb-fill me-2"></i>開發動機
+        <div className="mb-4 p-3 rounded-3 bg-light border-start border-primary border-4">
+          <p className="fw-bold text-dark mb-2">
+            <i className="bi bi-lightbulb-fill text-warning me-2"></i>開發動機
           </p>
-          <p className="text-muted small lh-lg">{project.motivation}</p>
+          <p className="text-secondary small lh-lg mb-0">{project.motivation}</p>
         </div>
 
         <div className="mb-4">
-          <p className="fw-bold text-primary mb-2">
-            <i className="bi bi-gear-wide-connected me-2"></i>技術重點與解決方案
+          <p className="fw-bold text-dark mb-2">
+            <i className="bi bi-cpu-fill text-primary me-2"></i>技術重點與解決方案
           </p>
-          {/* 使用 pre-line 讓 JSON 中的 \n 換行生效 */}
-          <p className="text-muted small lh-lg" style={{ whiteSpace: 'pre-line' }}>
+          <p className="text-secondary small lh-lg" style={{ whiteSpace: 'pre-line' }}>
             {project.function}
           </p>
         </div>

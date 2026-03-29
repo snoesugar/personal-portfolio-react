@@ -61,6 +61,10 @@ const ProjectCard = ({ proj, index, setCardRefs }) => {
           <p className="project-desc text-secondary small line-clamp-2 mb-3">
             {proj.desc}
           </p>
+
+          <div className="mb-4 d-flex flex-wrap gap-2">
+            {proj.tags.map(tag => <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal">{tag}</span>)}
+          </div>
           
           {/* 保持原本的外部連結按鈕 */}
           <div className="d-flex gap-4 mt-auto">
