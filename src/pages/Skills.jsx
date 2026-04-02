@@ -81,7 +81,7 @@ const Skills = () => {
                 <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>RESTful API</strong> 高效串接與非同步資料處理（Axios）。</li>
                 <li><i className="bi bi-check2-circle text-primary me-2"></i>自定義 <strong>Hooks</strong> 封裝，提升 UI 組件邏輯複用率。</li>
               </ul>
-              <div className="d-flex gap-2 mt-4 pt-3 border-top">
+              <div className="d-flex gap-2 mt-auto pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
               </div>
             </div>
@@ -98,7 +98,7 @@ const Skills = () => {
                 <li><i className="bi bi-check2-circle text-success me-2"></i><strong>EJS 樣板引擎</strong> 達成元件化開發，優化靜態頁面管理。</li>
                 <li><i className="bi bi-check2-circle text-success me-2"></i><strong>Responsive Design</strong> 達成像素級的 RWD 多裝置適應性。</li>
               </ul>
-              <div className="d-flex gap-2 mt-4 pt-3 border-top">
+              <div className="d-flex gap-2 mt-auto pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">WorkWay</span>
                 <span className="badge bg-light text-dark fw-normal border">URBNSTEP</span>
               </div>
@@ -116,7 +116,7 @@ const Skills = () => {
                 <li><i className="bi bi-check2-circle text-info me-2"></i><strong>ESLint / Prettier</strong> 強制執行代碼規範，降低維護門檻。</li>
                 <li><i className="bi bi-check2-circle text-info me-2"></i><strong>GH-Pages / Deployment</strong> 自動化部署流程建置與排錯。</li>
               </ul>
-              <div className="d-flex gap-2 flex-wrap mt-4 pt-3 border-top">
+              <div className="d-flex gap-2 flex-wrap mt-auto pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
                 <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
                 <span className="badge bg-light text-dark fw-normal border">Portfolio</span>
@@ -135,7 +135,7 @@ const Skills = () => {
                 <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>SOP Documentation</strong> 堅持編寫高品質 README 與註解。</li>
                 <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Performance Tuning</strong> 針對網頁加載速度進行資源優化。</li>
               </ul>
-              <div className="d-flex gap-2 mt-4 pt-3 border-top">
+              <div className="d-flex gap-2 mt-auto pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
                 <span className="badge bg-light text-dark fw-normal border">ZOBAA</span>
               </div>
@@ -155,7 +155,7 @@ const Skills = () => {
             {/* 挑戰 1: 狀態管理 */}
             <div className="col-lg-6 challenge-item">
               <div className="p-4 bg-light rounded-4 h-100 border-start border-primary border-5">
-                <div className="d-flex mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <span className="badge bg-primary me-2 mt-1">挑戰</span>
                   <h5 className="fw-bold mb-0">電商平台狀態同步與持久化 (Boardreams)</h5>
                 </div>
@@ -170,7 +170,7 @@ const Skills = () => {
             {/* 挑戰 2: 多人協作與樣式衝突 */}
             <div className="col-lg-6 challenge-item">
               <div className="p-4 bg-light rounded-4 h-100 border-start border-info border-5">
-                <div className="d-flex mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <span className="badge bg-info me-2 mt-1">挑戰</span>
                   <h5 className="fw-bold mb-0">團隊協作下的樣式污染與 Git 衝突 (Mofu-Diary)</h5>
                 </div>
@@ -185,7 +185,7 @@ const Skills = () => {
             {/* 挑戰 3: 動效效能優化 */}
             <div className="col-lg-6 challenge-item">
               <div className="p-4 bg-light rounded-4 h-100 border-start border-success border-5">
-                <div className="d-flex mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <span className="badge bg-success me-2 mt-1">挑戰</span>
                   <h5 className="fw-bold mb-0">GSAP 動效在行動裝置的流暢度 (WorkWay)</h5>
                 </div>
@@ -200,7 +200,7 @@ const Skills = () => {
             {/* 挑戰 4: 模組化與重構 */}
             <div className="col-lg-6 challenge-item">
               <div className="p-4 bg-light rounded-4 h-100 border-start border-warning border-5">
-                <div className="d-flex mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <span className="badge bg-warning text-dark me-2 mt-1">挑戰</span>
                   <h5 className="fw-bold mb-0">靜態網頁架構的維護困難 (ZOBAA / URBNSTEP)</h5>
                 </div>

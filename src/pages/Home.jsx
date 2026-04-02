@@ -100,7 +100,9 @@ const Home = () => {
       {/* Hero Section */}
       <section className="vh-100 d-flex align-items-center justify-content-center">
         <div className="text-center hero-content px-3">
-          <span className="text-primary fw-bold mb-3 d-block small">CORE DEV & FOOD SCIENTIST</span>
+          <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
+            <i className="bi bi-hexagon me-2"></i>CORE DEV & FOOD SCIENTIST
+          </span>
           <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
           <p className="lead text-secondary mx-auto mb-5">
             擁有食品研發與品管背景的嚴謹工程師，擅長以系統化邏輯與數據思維，打造易於維護且兼具高品質的前端網頁。
@@ -173,7 +175,7 @@ const Home = () => {
         <div className="container">
           <h2 className="display-4 fw-bold mb-4">追求穩定，但不止於穩定。</h2>
           <p className="lead text-white-50 mb-5">每一行代碼都經過品管檢視，確保您的數位產品不僅美觀，更加可靠。</p>
-          <Link to="/about" className="btn btn-primary rounded-pill px-5 py-3 fw-bold">深入瞭解我的技術實力</Link>
+          <Link to="/skills" className="btn btn-primary rounded-pill px-5 py-3 fw-bold">深入瞭解我的技術實力</Link>
         </div>
       </section>
     </div>

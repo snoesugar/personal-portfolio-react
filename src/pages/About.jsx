@@ -17,6 +17,10 @@ const About = () => {
         ease: "power4.out"
       });
 
+      gsap.from(".about-content", { y: 60, opacity: 0, duration: 1, ease: "power3.out" });
+
+      gsap.from(".about-tag", { x: 60, opacity: 0, duration: 1, ease: "power3.out" });
+
       // 2. 區塊交錯淡入
       const sections = gsap.utils.toArray(".about-section");
       sections.forEach((section) => {
@@ -51,17 +55,114 @@ const About = () => {
   return (
     <div ref={containerRef} className="about-page bg-white text-dark">
       {/* --- Section 1: Hero (核心理念) --- */}
-      <section className="vh-100 d-flex align-items-center justify-content-center px-4 bg-light position-relative overflow-hidden">
+      <section className="vh-100 d-flex align-items-center justify-content-center px-4 position-relative overflow-hidden">
         <div className="text-center position-relative z-2">
-          <span className="text-primary fw-bold mb-2 d-block">Food Science Tech × Frontend Engineering</span>
-          <h1 className="display-2 fw-bold about-title mb-4">
-            以品管的嚴謹<br />
-            <span className="text-primary text-outline">建構穩健的數位體驗</span>
+          {/* 1. 專業標籤：縮小並增加字距，提升精緻度 */}
+          <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
+            <i className="bi bi-flask me-2"></i>Food Science Tech × Frontend Engineering
+          </span>
+
+          {/* 2. 主標題：加強「嚴謹」與「數位體驗」的對比 */}
+          <h1 className="display-2 fw-bold about-title mb-4 lh-sm">
+            以品管的<span className="text-primary">嚴謹</span><br />
+            建構穩健的數位體驗
           </h1>
-          <p className="lead text-secondary mx-auto">
-            具備食品研發與品管背景的「嚴謹型工程師」。<br />
-            我將對規格的極致追求轉化為代碼的強健性，專注於打造兼具系統邏輯與高品質體驗的前端架構。
-          </p>
+
+          {/* 3. 自我介紹：拆分段落，讓閱讀有呼吸感 */}
+          <div className="about-text-content about-content">
+            <p className="lead text-dark fw-bold mb-2">
+              我是 邱煜琳 (Yulin)
+            </p>
+            
+            <p className="text-secondary mx-auto mb-4 lh-lg">
+              從大成、興霖食品的<strong>品管與研發</strong>現場，轉身投入程式邏輯的建構。<br />
+              我將對規格的零容忍態度，轉化為對代碼強健性的極致追求。
+            </p>
+
+            {/* 4. 轉職金句：用更輕量的樣式突顯核心動機 */}
+            <p className="fst-italic text-primary border-top border-bottom py-3 d-inline-block px-4 about-tag">
+              「比起調配一個新口味，我更嚮往開發一個好用的數位產品。」
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section: 轉職契機 --- */}
+      <section className="about-section py-9 bg-light">
+        <div className="container">
+          {/* 標題區：增加副標題層次 */}
+          <div className="row justify-content-center text-center mb-6">
+            <div className="col-lg-8">
+              <span className="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill">Career Transition</span>
+              <h2 className="display-6 fw-bold mb-3">從「調配味道」到「建構邏輯」</h2>
+              <p className="text-secondary">這不是一次衝動的選擇，而是一場對個人職能天賦的深度探索。</p>
+            </div>
+          </div>
+
+          <div className="row g-4">
+            {/* 轉向原因 1：環境與工具 */}
+            <div className="col-md-4">
+              <div className="p-4 bg-white rounded-4 shadow-sm h-100 border-0 position-relative overflow-hidden hover-up">
+                <div className="mb-4">
+                  <i className="bi bi-geo-alt-fill text-primary fs-3"></i>
+                </div>
+                <h5 className="fw-bold mb-3">場域與本質的覺察</h5>
+                <div className="d-flex flex-column gap-2">
+                  <div className="small text-muted border-start ps-3 py-1">
+                    <span className="text-dark fw-bold">過去：</span>偏遠工廠巡檢與體力作業
+                  </div>
+                  <div className="small text-primary border-start border-primary ps-3 py-1 bg-primary-subtle bg-opacity-10">
+                    <span className="fw-bold">嚮往：</span>數位工作的心流狀態與數據處理
+                  </div>
+                </div>
+                <p className="small text-muted mt-3">
+                  我發現比起傳統工廠環境，我更能沉浸在「處理統計數據」與「撰寫技術報告」的專注感中。
+                </p>
+              </div>
+            </div>
+
+            {/* 轉向原因 2：職能天賦 */}
+            <div className="col-md-4">
+              <div className="p-4 bg-white rounded-4 shadow-sm h-100 border-0 position-relative overflow-hidden hover-up">
+                <div className="mb-4">
+                  <i className="bi bi-diagram-3 text-primary fs-3"></i>
+                </div>
+                <h5 className="fw-bold mb-3">感性 vs 理性的抉擇</h5>
+                <div className="d-flex flex-column gap-2">
+                  <div className="small text-muted border-start ps-3 py-1">
+                    <span className="text-dark fw-bold">過去：</span>主觀且模糊的口味開發
+                  </div>
+                  <div className="small text-primary border-start border-primary ps-3 py-1 bg-primary-subtle bg-opacity-10">
+                    <span className="fw-bold">優勢：</span>結構化的視覺呈現與文檔邏輯
+                  </div>
+                </div>
+                <p className="small text-muted mt-3">
+                  在研發職位時，我體認到自己對「結構化資訊」具備更高的敏銳度，擅長將複雜數據轉為直覺呈現。
+                </p>
+              </div>
+            </div>
+
+            {/* 轉向原因 3：價值成就 */}
+            <div className="col-md-4">
+              <div className="p-4 bg-white rounded-4 shadow-sm h-100 border-0 position-relative overflow-hidden hover-up">
+                <div className="mb-4">
+                  <i className="bi bi-code-square text-primary fs-3"></i>
+                </div>
+                <h5 className="fw-bold mb-3">成就感的核心來源</h5>
+                <div className="d-flex flex-column gap-2">
+                  <div className="small text-muted border-start ps-3 py-1">
+                    <span className="text-dark fw-bold">過去：</span>暫時性的味覺開發滿足
+                  </div>
+                  <div className="small text-primary border-start border-primary ps-3 py-1 bg-primary-subtle bg-opacity-10">
+                    <span className="fw-bold">現況：</span>從無到有建構產品的長效動力
+                  </div>
+                </div>
+                <p className="small text-muted mt-3">
+                  開發新口味的滿足感稍縱即逝；但解決 Bug、建構網頁的成就感，卻能支撐我不斷挑戰技術邊界。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
