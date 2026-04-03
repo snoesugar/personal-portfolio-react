@@ -3,57 +3,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"; // 用於導向 About 頁面
 import projectData from "../data/projects.json";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper/modules';
+import HomeProjectCard from "../components/HomeProjectCard";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// --- 瀏覽器 Mockup 組件 ---
-const BrowserMockup = ({ img, url }) => (
-  <div className="browser-mockup shadow-sm">
-    <div className="browser-header">
-      <div className="browser-dots">
-        <span className="dot red"></span>
-        <span className="dot yellow"></span>
-        <span className="dot green"></span>
-      </div>
-      <div className="browser-address-bar text-muted small">{url.replace("https://", "")}</div>
-    </div>
-    <div className="browser-content">
-      {img ? <img src={img} alt="Project Cover" className="img-fluid project-img" /> : 
-      <div className="d-flex align-items-center justify-content-center h-100 bg-light text-muted small">Image Missing</div>}
-    </div>
-  </div>
-);
-
-// --- 作品卡片組件 ---
-const ProjectCard = ({ proj }) => {
-  const placeholderImg = `${import.meta.env.BASE_URL}${proj.title}.png`;
-  return (
-    <div className="h-100 w-100 d-flex">
-      <div className="card project-card w-100 position-relative border-0 shadow-sm-hover">
-        <div className="card-img-wrapper p-3 bg-light rounded-4">
-          <BrowserMockup img={placeholderImg} url={proj.url} />
-        </div>
-        <div className="card-body p-4 pt-0 d-flex flex-column flex-grow-1">
-          <h4 className="fw-bold mt-4 text-uppercase">{proj.title}</h4>
-          <p className="text-secondary small line-clamp-2 mb-3">{proj.desc}</p>
-          <div className="mb-4 d-flex flex-wrap gap-2">
-            {proj.tags.map(tag => <span key={tag} className="badge border text-secondary rounded-pill px-2 py-1 fw-normal">{tag}</span>)}
-          </div>
-          <div className="mt-auto">
-            <a href={proj.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark btn-sm rounded-pill px-4 fw-bold stretched-link">Live Demo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -163,7 +121,7 @@ const Home = () => {
           >
             {projectData.map((proj) => (
               <SwiperSlide key={proj.id} className="h-auto">
-                <ProjectCard proj={proj} /> 
+                <HomeProjectCard proj={proj} /> 
               </SwiperSlide>
             ))}
           </Swiper>
