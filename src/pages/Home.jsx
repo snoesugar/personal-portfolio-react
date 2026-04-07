@@ -106,7 +106,7 @@ const Home = () => {
           </span>
           <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
           <p className="lead text-secondary mx-auto mb-5" style={{ maxWidth: '800px' }}>
-            擁有食品研發與品管背景的嚴謹工程師，擅長以系統化邏輯與數據思維，打造易於維護且兼具高品質的前端網頁。
+            擁有食品研發與品管背景的嚴謹工程師，<br className="d-md-none d-block" />擅長以系統化邏輯與數據思維，<br className="d-md-none d-block" />打造易於維護且兼具高品質的前端網頁。
           </p>
           <div className="d-flex gap-3 justify-content-center">
             <a href="#portfolio" className="btn btn-primary rounded-pill px-5 py-2">精選作品庫</a>

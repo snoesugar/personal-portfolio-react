@@ -5,50 +5,130 @@ import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 類別定義保持在外部 (Good Practice)
+class LogicLine {
+  constructor(canvasWidth, canvasHeight, gridSize, context) {
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
+    this.gridSize = gridSize;
+    this.ctx = context;
+    this.init();
+  }
+
+  init() {
+    this.x = Math.floor(Math.random() * (this.canvasWidth / this.gridSize)) * this.gridSize;
+    this.y = Math.floor(Math.random() * (this.canvasHeight / this.gridSize)) * this.gridSize;
+    this.length = Math.random() * 100 + 50;
+    this.speed = Math.random() * 2 + 1;
+    this.opacity = 0;
+    this.color = Math.random() > 0.5 ? "#8fb49d" : "#fbb376";
+    this.vertical = Math.random() > 0.5;
+  }
+
+  draw() {
+    const c = this.ctx;
+    if (!c) return; // 安全檢查
+    c.beginPath();
+    c.strokeStyle = this.color;
+    c.globalAlpha = this.opacity;
+    c.lineWidth = 1;
+    if (this.vertical) {
+      c.moveTo(this.x, this.y);
+      c.lineTo(this.x, this.y + this.length);
+    } else {
+      c.moveTo(this.x, this.y);
+      c.lineTo(this.x + this.length, this.y);
+    }
+    c.stroke();
+  }
+
+  update() {
+    this.opacity += 0.01;
+    if (this.opacity > 0.3) {
+      this.opacity = 0.3;
+      if (this.vertical) this.y += this.speed;
+      else this.x += this.speed;
+    }
+    // 檢查是否超出當前畫布邊界
+    if (this.x > this.canvasWidth || this.y > this.canvasHeight) {
+      this.init();
+    }
+  }
+}
+
 const Skills = () => {
   const componentRef = useRef(null);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // 1. 標題與副標題進場
+      const canvas = canvasRef.current;
+      const c = canvas.getContext("2d");
+      let lines = [];
+      const gridSize = 40;
+      let animationFrameId;
+
+      const initScene = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = componentRef.current.offsetHeight;
+        lines = [];
+        for (let i = 0; i < 15; i++) {
+          // 修正：傳入正確的參數
+          lines.push(new LogicLine(canvas.width, canvas.height, gridSize, c));
+        }
+      };
+
+      function render() {
+        c.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // 繪製背景網格
+        c.beginPath();
+        c.strokeStyle = "rgba(0, 0, 0, 0.03)";
+        c.lineWidth = 0.5;
+        for (let x = 0; x < canvas.width; x += gridSize) {
+          c.moveTo(x, 0); c.lineTo(x, canvas.height);
+        }
+        for (let y = 0; y < canvas.height; y += gridSize) {
+          c.moveTo(0, y); c.lineTo(canvas.width, y);
+        }
+        c.stroke();
+
+        lines.forEach(line => {
+          line.update();
+          line.draw();
+        });
+        
+        animationFrameId = requestAnimationFrame(render);
+      }
+
+      initScene();
+      render();
+
+      const handleResize = () => {
+        initScene();
+      };
+      window.addEventListener("resize", handleResize);
+
+      // --- 進場動畫維持原樣 ---
       gsap.from(".skills-header", {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".skills-header",
-          start: "top 85%",
-        }
+        y: 30, opacity: 0, duration: 1, ease: "power3.out",
+        scrollTrigger: { trigger: ".skills-header", start: "top 85%" }
       });
 
-      // 2. 技術卡片交錯飛入
       gsap.from(".tech-card-wrapper", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".tech-grid-container",
-          start: "top 80%",
-        }
+        y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.7)",
+        scrollTrigger: { trigger: ".tech-grid-container", start: "top 80%" }
       });
 
-      
-
-      // 3. 底部亮點區塊
       gsap.from(".highlight-box", {
-        scaleX: 0,
-        opacity: 0,
-        duration: 1.2,
-        transformOrigin: "left",
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: ".highlight-box",
-          start: "top 90%",
-        }
+        scaleX: 0, opacity: 0, duration: 1.2, transformOrigin: "left", ease: "expo.out",
+        scrollTrigger: { trigger: ".highlight-box", start: "top 90%" }
       });
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        cancelAnimationFrame(animationFrameId);
+      };
     }, componentRef);
 
     return () => ctx.revert();
@@ -56,7 +136,13 @@ const Skills = () => {
 
   return (
     <div ref={componentRef} className="skills-page-wrapper bg-white py-10">
-      <div className="container">
+      {/* 背景 Canvas */}
+      <canvas
+        ref={canvasRef}
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{ pointerEvents: "none", zIndex: 0 }}
+      />
+      <div className="container position-relative z-index-1">
         {/* --- Header: 核心競爭力 --- */}
         <div className="skills-header text-center mb-10">
           <span className="badge rounded-pill bg-primary-subtle text-primary px-3 py-2 mb-3 fw-bold">EXPERTISE & STACK</span>

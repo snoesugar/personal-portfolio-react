@@ -164,13 +164,13 @@ const About = () => {
             </p>
             
             <p className="text-secondary mx-auto mb-4 lh-lg">
-              從大成、興霖食品的<strong>品管與研發</strong>現場，轉身投入程式邏輯的建構。<br />
-              我將對規格的零容忍態度，轉化為對代碼強健性的極致追求。
+              從大成、興霖食品的<strong>品管與研發</strong>現場，<br className="d-md-none d-block" />轉身投入程式邏輯的建構。<br />
+              我將對規格的零容忍態度，<br className="d-md-none d-block" />轉化為對代碼強健性的極致追求。
             </p>
 
             {/* 4. 轉職金句：用更輕量的樣式突顯核心動機 */}
             <p className="fst-italic text-primary border-top border-bottom py-3 d-inline-block px-4 about-tag">
-              「比起調配一個新口味，我更嚮往開發一個好用的數位產品。」
+              「比起調配一個新口味，<br className="d-md-none d-block" />我更嚮往開發一個好用的數位產品。」
             </p>
           </div>
         </div>
@@ -184,7 +184,7 @@ const About = () => {
             <div className="col-lg-8">
               <span className="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill">Career Transition</span>
               <h2 className="display-6 fw-bold mb-3">從「調配味道」到「建構邏輯」</h2>
-              <p className="text-secondary">這不是一次衝動的選擇，而是一場對個人職能天賦的深度探索。</p>
+              <p className="text-secondary">這不是一次衝動的選擇，<br className="d-md-none d-block" />而是一場對個人職能天賦的深度探索。</p>
             </div>
           </div>
 
