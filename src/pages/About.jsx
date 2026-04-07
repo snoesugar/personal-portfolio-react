@@ -56,6 +56,11 @@ const About = () => {
     <div ref={containerRef} className="about-page bg-white text-dark">
       {/* --- Section 1: Hero (核心理念) --- */}
       <section className="vh-100 d-flex align-items-center justify-content-center px-4 position-relative overflow-hidden">
+        
+        <div 
+          className="about-bg position-absolute" 
+        ></div>
+        
         <div className="text-center position-relative z-2">
           {/* 1. 專業標籤：縮小並增加字距，提升精緻度 */}
           <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
@@ -71,7 +76,7 @@ const About = () => {
           {/* 3. 自我介紹：拆分段落，讓閱讀有呼吸感 */}
           <div className="about-text-content about-content">
             <p className="lead text-dark fw-bold mb-2">
-              我是 邱煜琳 (Yulin)
+              我是 邱煜琳 (Yu-Lin)
             </p>
             
             <p className="text-secondary mx-auto mb-4 lh-lg">

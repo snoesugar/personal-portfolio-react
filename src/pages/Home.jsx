@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"; // 用於導向 About 頁面
 import projectData from "../data/projects.json";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper/modules';
+import Parallax from 'parallax-js'; // 匯入 parallax-js
 import HomeProjectCard from "../components/HomeProjectCard";
 
 import 'swiper/css';
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const mainRef = useRef(null);
+  const sceneRef = useRef(null); // 用於引用場景元素
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -27,7 +29,7 @@ const Home = () => {
       // 1. Hero 進場
       gsap.from(".hero-content", { y: 60, opacity: 0, duration: 1, ease: "power3.out" });
 
-      // 2. 核心價值卡片交錯進場 (New!)
+      // 2. 核心價值卡片交錯進場
       gsap.from(".value-card", {
         y: 50,
         opacity: 0,
@@ -39,7 +41,7 @@ const Home = () => {
         }
       });
 
-      // 3. Swiper 容器進場
+      // .. Swiper 容器進場
       gsap.from(".my-swiper-container", {
         y: 80,
         opacity: 0,
@@ -53,16 +55,57 @@ const Home = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    // 確保元素存在後，初始化 Parallax
+    if (sceneRef.current) {
+      const parallaxInstance = new Parallax(sceneRef.current, {
+        relativeInput: true, // 建議開啟，讓滑鼠效果更自然
+        hoverOnly: false     // 預設為 false，滑鼠離開區域仍會有慣性
+      });
+
+      // 組件卸載時銷毀執行緒，防止記憶體洩漏
+      return () => {
+        parallaxInstance.destroy();
+      };
+    }
+  }, []);
+
   return (
     <div ref={mainRef} className="container-fluid p-0 bg-white">
       {/* Hero Section */}
-      <section className="vh-100 d-flex align-items-center justify-content-center">
-        <div className="text-center hero-content px-3">
+      <section 
+      ref={sceneRef}
+      id="parallax-scene" 
+      className="hero-section vh-100 d-flex align-items-center justify-content-center position-relative overflow-hidden"
+    >
+      
+      {/* 原始的背景 layer，不參與 parallax */}
+      <div className="hero-bg position-absolute w-100 h-100"></div>
+      
+      {/* 左上浮動食物 */}
+      <div className="floating-item food-item" data-depth="0.20">
+        <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}food-icon.png)` }}>
+          <img src={`${import.meta.env.BASE_URL}food-icon.png`} alt="Food" />
+        </div>
+      </div>
+
+      {/* 右上浮動電腦 */}
+      <div className="floating-item computer-item" data-depth="0.40">
+        <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}computer-icon.png)` }}>
+          <img src={`${import.meta.env.BASE_URL}computer-icon.png`} alt="Computer" />
+        </div>
+      </div>
+
+      {/* 【修改 3】將文字內容包裹在一個 layer 中，設定極小的 depth (0.05)
+          這樣文字會跟著背景有輕微的深度差，但不會飄移太嚴重 */}
+      <div className="text-center hero-content px-3 position-relative parallax-layer" data-depth="0.05" style={{ zIndex: 1, pointerEvents: 'none' /* 防止文字層阻擋按鈕點擊 */ }}>
+        {/* pointerEvents: 'none' 是關鍵，它讓滑鼠事件穿透到下面的按鈕 */}
+        <div style={{ pointerEvents: 'auto' /* 恢復內容內部的點擊事件 */ }}>
           <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
             <i className="bi bi-hexagon me-2"></i>CORE DEV & FOOD SCIENTIST
           </span>
           <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
-          <p className="lead text-secondary mx-auto mb-5">
+          <p className="lead text-secondary mx-auto mb-5" style={{ maxWidth: '800px' }}>
             擁有食品研發與品管背景的嚴謹工程師，擅長以系統化邏輯與數據思維，打造易於維護且兼具高品質的前端網頁。
           </p>
           <div className="d-flex gap-3 justify-content-center">
@@ -70,7 +113,8 @@ const Home = () => {
             <Link to="/about" className="btn btn-outline-primary rounded-pill px-5 py-2">我的轉職故事</Link>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* 核心價值區塊 */}
       <section className="values-section py-6 bg-light">

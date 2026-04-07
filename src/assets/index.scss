@@ -54,6 +54,145 @@ html {
 
 /* ----- home ----- */
 
+.hero-bg {
+  width: 100%;
+  height: 100%; 
+  z-index: 0;
+  background-image: url('../../public/home-img.png'); 
+  background-size: cover; /* 桌機版用 cover 撐滿 */
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 768px) {
+  section.vh-100 {
+    height: 60vh !important; /* 縮短手機版的高度，圖片感官上會變小 */
+  }
+}
+
+/* --- 修正電腦與食物的容器 --- */
+.floating-item {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+}
+
+/* 建立一個統一的包裝層，確保圖片和光暈絕對對齊 */
+.floating-item .img-wrapper {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  /* 讓這個容器成為定位基準 */
+}
+
+/* 1. 底層：清晰的圖片 */
+.floating-item img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  /* 給清晰圖一個很淡的羽化，讓邊緣不生硬 */
+  -webkit-mask-image: radial-gradient(circle, black 60%, transparent 95%);
+  mask-image: radial-gradient(circle, black 60%, transparent 95%);
+}
+
+/* 2. 重寫 ::after：這次我們不做重疊圖，改做「純光暈」 */
+.floating-item .img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: var(--item-img);
+  background-size: cover;
+  z-index: 1; /* 放在圖片下面 */
+
+  /* 暴力模糊 */
+  filter: blur(40px) brightness(1.2); 
+  
+  /* 讓光暈往外擴散 */
+  transform: scale(1.3); 
+  
+  /* 這次遮罩不要挖空中心，而是讓它由內向外淡出 */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 50%, transparent 100%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 50%, transparent 100%);
+  
+  opacity: 0.6;
+}
+
+/* 3. 增加一個額外的外發光效果 (drop-shadow) */
+.floating-item .img-wrapper {
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  
+  /* --- 加入動畫 --- */
+  animation: softFloat 4s ease-in-out infinite; /* 4秒一個循環，無限重複 */
+}
+
+/* --- 定位修正 --- */
+/* 左上食物 */
+.food-item .img-wrapper {
+  top: 10%;
+  left: 10%;
+  animation-duration: 3s;   
+  animation-delay: 0.5s;    /* 延遲 0.5 秒開始 */
+}
+
+/* 右下電腦 */
+.computer-item .img-wrapper {
+  bottom: 10%;
+  right: 10%;
+  animation-duration: 2.5s; /* 電腦速度稍微不同 */
+  animation-delay: 0s;
+}
+
+/* 定義上下飄浮的動作 */
+@keyframes softFloat {
+  0% {
+    transform: translateY(0px); /* 起點 */
+  }
+  50% {
+    transform: translateY(-20px); /* 往上飄 20px */
+  }
+  100% {
+    transform: translateY(0px); /* 回到原點 */
+  }
+}
+
+/* 響應式微調：手機版縮小並調整位置 */
+@media (max-width: 768px) {
+  .floating-item img, .floating-item::after {
+    width: 120px;
+    height: 120px;
+  }
+  .computer-item .img-wrapper {
+    bottom: -18%;
+    right: -22%;
+  }
+}
+
 /* --- 瀏覽器外殼 Mockup --- */
 .browser-mockup {
   background: #fff;
@@ -199,6 +338,32 @@ html {
 }
 
 /* ------ About ----- */
+
+.about-bg {
+  width: 100%;
+  height: 100%; 
+  z-index: 0;
+  background-image: url('../../public/about-img.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
 .about-page {
   .text-outline {
     -webkit-text-stroke: 1px var(--bs-green-10);
