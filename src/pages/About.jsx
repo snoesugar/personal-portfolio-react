@@ -141,9 +141,9 @@ const About = () => {
       {/* --- Section 1: Hero (核心理念) --- */}
       <section className="vh-100 d-flex align-items-center justify-content-center px-4 position-relative overflow-hidden">
         {/* 背景閃爍層 */}
-        <div 
-          className="about-bg" 
-        ></div>
+        <div className="about-bg">
+          <div className="bg-image"></div>
+        </div>
         
         <div className="text-center position-relative z-2">
           {/* 1. 專業標籤：縮小並增加字距，提升精緻度 */}
