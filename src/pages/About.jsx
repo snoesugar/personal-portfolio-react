@@ -9,34 +9,117 @@ const About = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // 1. 標題大字進場
-      gsap.from(".about-title", {
-        y: 100,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power4.out"
-      });
+      // --- Section 1: Hero (優雅淡入) ---
+      const tlHero = gsap.timeline();
+      tlHero.from(".about-title", { y: 80, opacity: 0, duration: 1.2, ease: "power4.out" })
+            .from(".about-content", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.8")
+            .from(".about-tag", { scale: 0.8, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.4");
 
-      gsap.from(".about-content", { y: 60, opacity: 0, duration: 1, ease: "power3.out" });
-
-      gsap.from(".about-tag", { x: 60, opacity: 0, duration: 1, ease: "power3.out" });
-
-      // 2. 區塊交錯淡入
-      const sections = gsap.utils.toArray(".about-section");
-      sections.forEach((section) => {
-        gsap.from(section, {
-          y: 50,
+      // --- Section 2: 轉職契機 (橫向交錯滑入) ---
+      // 讓三個卡片從左右兩邊往中間靠攏
+      const transitionCards = gsap.utils.toArray(".about-section:nth-of-type(2) .hover-up");
+      transitionCards.forEach((card, i) => {
+        gsap.from(card, {
+          x: i % 2 === 0 ? -100 : 100, // 偶數從左，奇數從右
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           scrollTrigger: {
-            trigger: section,
+            trigger: card,
             start: "top 85%",
             toggleActions: "play none none reverse"
           }
         });
       });
 
-      // 3. 技能標籤噴發效果
+      gsap.fromTo(".about-tag", 
+        { 
+          filter: "brightness(5) blur(10px)",
+          opacity: 0 
+        }, 
+        { 
+          filter: "brightness(1) blur(0px)",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.inOut"
+        }
+      );
+
+      // --- Section 3: 職人背景 (3D 翻轉效果) ---
+      // 模擬品管的「翻開檢驗」感
+      gsap.from(".about-section:nth-of-type(3) .bg-dark", {
+        rotationY: -45,
+        rotationX: 10,
+        opacity: 0,
+        duration: 1.5,
+        transformOrigin: "left center",
+        scrollTrigger: {
+          trigger: ".about-section:nth-of-type(3)",
+          start: "top 70%",
+        }
+      });
+
+      // --- Section 4: 商業邏輯 (深色區塊：拉簾式進場) ---
+      gsap.fromTo(".advantage-card", 
+        {
+          y: 60,         // 起始位置（稍微縮小一點距離，避免過度位移）
+          opacity: 0,
+          visibility: "hidden" // 初始隱藏，防止閃爍
+        },
+        {
+          y: 0,          // 回到原始排版位置
+          opacity: 1,
+          visibility: "visible",
+          stagger: 0.2,
+          duration: 1,
+          ease: "power3.out", // expo.out 有時太快，power3 較平穩
+          scrollTrigger: {
+            trigger: ".about-section:nth-of-type(4)",
+            start: "top 80%",
+            // 建議加上這行，確保排版計算完成後再觸發
+            invalidateOnRefresh: true, 
+          }
+        }
+      );
+
+      // --- Section 5: 辦公效率 (文字分行進場) ---
+      gsap.from(".about-section:nth-of-type(5) h2, .about-section:nth-of-type(5) .col-md-6", {
+        opacity: 0,
+        y: 30,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".about-section:nth-of-type(5)",
+          start: "top 80%",
+        }
+      });
+
+      // --- Section 6: 核心技術 (網格縮放進場) ---
+      gsap.from(".tech-card", {
+        scale: 0.9,
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".tech-grid",
+          start: "top 80%",
+        }
+      });
+
+      // --- Section 7: 專案成果 (數字跳動感) ---
+      const projectCards = gsap.utils.toArray(".about-section:nth-of-type(7) .card");
+      projectCards.forEach((card, i) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: i % 2 === 0 ? 40 : -40, // 上下交錯
+          duration: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          }
+        });
+      });
+
+      // --- Section 8: 技能標籤 (噴發效果：保持原本最棒的設計) ---
       gsap.from(".skill-tag", {
         scale: 0,
         opacity: 0,
@@ -47,18 +130,19 @@ const About = () => {
           start: "top 90%"
         }
       });
+
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={containerRef} className="about-page bg-white text-dark">
+    <div ref={containerRef} className="about-page bg-white text-dark overflow-hidden">
       {/* --- Section 1: Hero (核心理念) --- */}
       <section className="vh-100 d-flex align-items-center justify-content-center px-4 position-relative overflow-hidden">
-        
+        {/* 背景閃爍層 */}
         <div 
-          className="about-bg position-absolute" 
+          className="about-bg" 
         ></div>
         
         <div className="text-center position-relative z-2">
@@ -69,7 +153,7 @@ const About = () => {
 
           {/* 2. 主標題：加強「嚴謹」與「數位體驗」的對比 */}
           <h1 className="display-2 fw-bold about-title mb-4 lh-sm">
-            以品管的<span className="text-primary">嚴謹</span><br />
+            以品管的<span className="text-primary shimmer-text">嚴謹</span><br />
             建構穩健的數位體驗
           </h1>
 

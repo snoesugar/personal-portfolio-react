@@ -340,28 +340,78 @@ html {
 /* ------ About ----- */
 
 .about-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   z-index: 0;
-  background-image: url('../../public/about-img.png'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.15;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+  pointer-events: none;
+  overflow: hidden;
+
+  /* 上下羽化遮罩 (將原本直接套用在 DOM 的遮罩移到這) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+
+  /* --- 底層：清晰的圖片本身 --- */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('../../public/about-img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 清晰度維持 0.15，讓它看起來是清晰的，但跟背景融合 */
+    opacity: 0.15; 
+  }
+
+  /* --- 中層：原本的藍色大呼吸光暈 (選配，可以拿掉) --- */
+  /* 如果你要保留，它必須位於圖片之上，粒子之下 */
+  .pulse-layer {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.12) 20%, transparent 90%);
+    top: -15%;
+    left: -10%;
+    filter: blur(80px);
+    animation: pulse 10s ease-in-out infinite alternate;
+  }
+
+  /* --- 上層：藍色數位粒子 --- */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3; /* 確保它在圖片之上 */
+    background-image: 
+      radial-gradient(1.5px 1.5px at 15% 25%, rgba(13, 110, 253, 0.8), transparent),
+      radial-gradient(2px 2px at 40% 65%, rgba(13, 110, 253, 0.5), transparent),
+      radial-gradient(1px 1px at 75% 15%, rgba(13, 110, 253, 0.8), transparent),
+      radial-gradient(2.5px 2.5px at 85% 80%, rgba(13, 110, 253, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 30% 90%, rgba(13, 110, 253, 0.7), transparent);
+    background-size: 300px 300px;
+    animation: digitalSparkles 3s ease-in-out infinite;
+  }
+}
+
+/* 數位粒子閃爍動畫：加入微微的位移感 */
+@keyframes digitalSparkles {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.95) translateY(0); 
+  }
+  50% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(1.3) translateY(-20px); 
+  }
 }
 
 .about-page {
@@ -375,6 +425,29 @@ html {
       transform: translateY(-10px);
       border-color: var(--bs-green-10) !important;
     }
+  }
+}
+
+/* 文字閃耀動畫 */
+.shimmer-text {
+  background: linear-gradient(
+    90deg, 
+    #0d6efd 0%, 
+    #80b4ff 25%, 
+    #ffffff 50%, 
+    #80b4ff 75%, 
+    #0d6efd 100%
+  );
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
   }
 }
 
