@@ -1,14 +1,196 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>personal-portfolio</title>
+    
+    <title>精密轉譯數位體驗 | 食品科學背景的前端工程師</title>
+    <meta name="description" content="擁有食品研發與品管背景的嚴謹前端工程師，擅長以系統化邏輯與數據思維，打造高品質、易維護的 Web 數位體驗。">
+    <meta name="keywords" content="前端工程師, React, 食品科學轉職, 網頁開發, UI/UX, 品管邏輯">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://snoesugar.github.io/personal-portfolio-react/" /> 
+    <meta property="og:title" content="精密轉譯數位體驗 | 食品科學背景的前端工程師" />
+    <meta property="og:description" content="從品管實驗室到程式碼編輯器，以嚴謹邏輯打造可靠的網頁作品。點擊了解我的轉職故事與作品。" />
+    <meta property="og:image" content="https://snoesugar.github.io/personal-portfolio-react/home-image.png" /> 
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="精密轉譯數位體驗 | 食品科學背景的前端工程師" />
+    <meta name="twitter:description" content="擁有食品科學背景的嚴謹前端工程師。彈性與邏輯兼具的網頁開發者。" />
+    <meta name="twitter:image" content="https://snoesugar.github.io/personal-portfolio-react/home-image.png" />
+
+    <meta name="theme-color" content="#C5A367" />
+    <style>
+      :root {
+        /* 可愛科技配色 */
+        --code-blue: #8fb49d;  
+        --science-yellow: #fbb376; 
+      }
+
+      body {
+        margin: 0;
+        background-color: white;
+        overflow: hidden;
+      }
+
+      #root-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        z-index: 99999;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* =========================================
+        2. 可愛符號動畫 (Code & Science Bounce)
+         ========================================= */
+      .viz-container {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+        align-items: flex-end;
+      }
+
+      .bounce-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* 共通彈跳動畫 */
+      .symbol-item {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 24px;
+        border-radius: 15px;
+        animation: cute-bounce 1s infinite ease-in-out;
+        position: relative;
+      }
+
+      /* Code 符號 < /> */
+      .code-sym {
+        background-color: #fff;
+        border: 4px solid var(--code-blue);
+        color: var(--code-blue);
+        animation-delay: 0.1s;
+      }
+
+      /* 科學符號 ⚛ */
+      .sci-sym {
+        background-color: #fff;
+        border: 4px solid var(--science-yellow);
+        color: var(--science-yellow);
+        font-size: 30px;
+        animation-delay: 0.3s;
+      }
+
+      /* Q彈陰影 */
+      .symbol-shadow {
+        width: 40px;
+        height: 6px;
+        background: rgba(0,0,0,0.06);
+        border-radius: 50%;
+        margin-top: 10px;
+        animation: shadow-scaling 1s infinite ease-in-out;
+      }
+
+      .code-shadow { animation-delay: 0.1s; }
+      .sci-shadow { animation-delay: 0.3s; }
+
+      /* =========================================
+        3. 狀態文字
+         ========================================= */
+      .status-text {
+        font-size: 14px;
+        letter-spacing: 3px;
+        color: '$gray-800';
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      /* 文字旁的閃爍星星 */
+      .status-text::before,
+      .status-text::after {
+        content: '✨';
+        animation: star-blink 1.5s infinite alternate;
+      }
+
+      .dots {
+        display: inline-block;
+        width: 20px;
+      }
+
+      /* =========================================
+        4. 動畫定義 (Animations)
+         ========================================= */
+      @keyframes cute-bounce {
+        0%, 100% { transform: translateY(0) scale(1, 1); }
+        30% { transform: translateY(-35px) scale(0.9, 1.1); } /* 向上彈起伸長 */
+        50% { transform: translateY(0) scale(1.15, 0.85); }   /* 落地壓扁 */
+        70% { transform: translateY(-8px) scale(1, 1); }      /* 小回彈 */
+      }
+
+      @keyframes shadow-scaling {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        30% { transform: scale(0.5); opacity: 0.2; }
+        50% { transform: scale(1.3); opacity: 0.8; }
+      }
+
+      @keyframes star-blink {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+    </style>
     <script type="module" crossorigin src="/personal-portfolio-react/assets/index-DMQCyQvE.js"></script>
     <link rel="stylesheet" crossorigin href="/personal-portfolio-react/assets/index-BH18YceD.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="root-loading">
+        <div class="viz-container">
+          <div class="bounce-wrapper">
+            <div class="symbol-item code-sym">&lt;/&gt;</div>
+            <div class="symbol-shadow code-shadow"></div>
+          </div>
+          
+          <div class="bounce-wrapper">
+            <div class="symbol-item sci-sym">⚛</div>
+            <div class="symbol-shadow sci-shadow"></div>
+          </div>
+        </div>
+        
+        <div class="status-text">
+          Translating<span class="dots">...</span>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const loader = document.getElementById('root-loading');
+        if (loader) {
+          setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 600);
+          }, 2000); 
+        }
+      });
+    </script>
   </body>
 </html>
