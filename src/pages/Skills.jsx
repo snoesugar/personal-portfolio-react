@@ -44,8 +44,8 @@ class LogicLine {
 
   update() {
     this.opacity += 0.01;
-    if (this.opacity > 0.3) {
-      this.opacity = 0.3;
+    if (this.opacity > 0.5) {
+      this.opacity = 0.5;
       if (this.vertical) this.y += this.speed;
       else this.x += this.speed;
     }
@@ -70,10 +70,15 @@ const Skills = () => {
 
       const initScene = () => {
         canvas.width = window.innerWidth;
-        canvas.height = componentRef.current.offsetHeight;
+        // 改為 window.innerHeight，確保背景填滿視窗而非整個網頁長度
+        canvas.height = window.innerHeight; 
         lines = [];
-        for (let i = 0; i < 15; i++) {
-          // 修正：傳入正確的參數
+
+        // 調整密度計算，因為現在只根據視窗大小產生線條，效能會更好
+        const density = 20000; 
+        const lineCount = Math.floor((canvas.width * canvas.height) / density);
+
+        for (let i = 0; i < lineCount; i++) {
           lines.push(new LogicLine(canvas.width, canvas.height, gridSize, c));
         }
       };
@@ -120,6 +125,28 @@ const Skills = () => {
         scrollTrigger: { trigger: ".tech-grid-container", start: "top 80%" }
       });
 
+      gsap.from(".challenge-section .text-center", {
+        y: 30, opacity: 0, duration: 1, ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".challenge-section",
+          start: "top 85%", // 當區塊頂部到達螢幕 85% 位置時觸發
+        }
+      });
+
+      // 2. 讓四個 challenge-item 依序「放大 + 淡入」
+      gsap.from(".challenge-item", {
+        scale: 0.9,          // 從 90% 大小開始
+        y: 30,               // 稍微從下方飄上來
+        opacity: 0,          // 從透明開始
+        duration: 0.8,
+        stagger: 0.2,        // 每個項目間隔 0.2 秒依序出現
+        ease: "power2.out",  // 平滑的減速效果
+        scrollTrigger: {
+          trigger: ".challenge-section .row", // 監聽包含項目的 row
+          start: "top 75%",                  // 稍微晚一點觸發，等標題現身後
+        }
+      });
+
       gsap.from(".highlight-box", {
         scaleX: 0, opacity: 0, duration: 1.2, transformOrigin: "left", ease: "expo.out",
         scrollTrigger: { trigger: ".highlight-box", start: "top 90%" }
@@ -139,8 +166,12 @@ const Skills = () => {
       {/* 背景 Canvas */}
       <canvas
         ref={canvasRef}
-        className="position-absolute top-0 start-0 w-100 h-100"
-        style={{ pointerEvents: "none", zIndex: 0 }}
+        className="position-fixed top-0 start-0 w-100 h-100"
+        style={{ 
+          pointerEvents: "none", 
+          zIndex: 0,
+          objectFit: "cover" // 確保填滿
+        }}
       />
       <div className="container position-relative z-index-1">
         {/* --- Header: 核心競爭力 --- */}
@@ -230,7 +261,7 @@ const Skills = () => {
 
         </div>
 
-        {/* --- 3. 新增：實戰挑戰與克服 (Challenge Section) --- */}
+        {/* --- 3. 新增：實戰挑戰與克服  --- */}
         <div className="challenge-section mb-12">
           <div className="text-center mb-8">
             <h2 className="display-4 fw-bold text-dark mb-4">實戰挑戰與對策</h2>
