@@ -18,6 +18,22 @@ const Home = () => {
   const mainRef = useRef(null);
   const sceneRef = useRef(null); // 用於引用場景元素
 
+  // 定義跑馬燈內容
+  const skills = [
+    "Vue 3 / React 18", 
+    "TypeScript 強型別", 
+    "Pinia / Redux Toolkit", 
+    "Tailwind / SCSS BEM", 
+    "Vite / GitHub Actions", 
+    "CI/CD 自動化部署",
+    "SOP 規範主導", 
+    "Git Flow 衝突管理", 
+    "空值防禦 (Null Defense)", 
+    "數據視覺化", 
+    "引導式 UI/UX", 
+    "跨職能溝通轉譯"
+  ];
+
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.from(".home-title", {
@@ -77,44 +93,44 @@ const Home = () => {
       ref={sceneRef}
       id="parallax-scene" 
       className="hero-section vh-100 d-flex align-items-center justify-content-center position-relative overflow-hidden"
-    >
-      
-      {/* 原始的背景 layer，不參與 parallax */}
-      <div className="hero-bg position-absolute w-100 h-100"></div>
-      
-      {/* 左上浮動食物 */}
-      <div className="floating-item food-item" data-depth="0.20">
-        <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}food-icon.png)` }}>
-          <img src={`${import.meta.env.BASE_URL}food-icon.png`} alt="Food" />
-        </div>
-      </div>
-
-      {/* 右上浮動電腦 */}
-      <div className="floating-item computer-item" data-depth="0.40">
-        <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}computer-icon.png)` }}>
-          <img src={`${import.meta.env.BASE_URL}computer-icon.png`} alt="Computer" />
-        </div>
-      </div>
-
-      {/* 【修改 3】將文字內容包裹在一個 layer 中，設定極小的 depth (0.05)
-          這樣文字會跟著背景有輕微的深度差，但不會飄移太嚴重 */}
-      <div className="text-center hero-content px-3 position-relative parallax-layer" data-depth="0.05" style={{ zIndex: 1, pointerEvents: 'none' /* 防止文字層阻擋按鈕點擊 */ }}>
-        {/* pointerEvents: 'none' 是關鍵，它讓滑鼠事件穿透到下面的按鈕 */}
-        <div style={{ pointerEvents: 'auto' /* 恢復內容內部的點擊事件 */ }}>
-          <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
-            <i className="bi bi-hexagon me-2"></i>CORE DEV & FOOD SCIENTIST
-          </span>
-          <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
-          <p className="lead text-secondary mx-auto mb-5" style={{ maxWidth: '800px' }}>
-            擁有食品研發與品管背景的嚴謹工程師，<br className="d-md-none d-block" />擅長以系統化邏輯與數據思維，<br className="d-md-none d-block" />打造易於維護且兼具高品質的前端網頁。
-          </p>
-          <div className="d-flex gap-3 justify-content-center">
-            <a href="#portfolio" className="btn btn-primary rounded-pill px-5 py-2">精選作品庫</a>
-            <Link to="/about" className="btn btn-outline-primary rounded-pill px-5 py-2">我的轉職故事</Link>
+      >
+        
+        {/* 原始的背景 layer，不參與 parallax */}
+        <div className="hero-bg position-absolute w-100 h-100"></div>
+        
+        {/* 左上浮動食物 */}
+        <div className="floating-item food-item" data-depth="0.20">
+          <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}food-icon.png)` }}>
+            <img src={`${import.meta.env.BASE_URL}food-icon.png`} alt="Food" />
           </div>
         </div>
-      </div>
-    </section>
+
+        {/* 右上浮動電腦 */}
+        <div className="floating-item computer-item" data-depth="0.40">
+          <div className="img-wrapper" style={{ '--item-img': `url(${import.meta.env.BASE_URL}computer-icon.png)` }}>
+            <img src={`${import.meta.env.BASE_URL}computer-icon.png`} alt="Computer" />
+          </div>
+        </div>
+
+        {/* 【修改 3】將文字內容包裹在一個 layer 中，設定極小的 depth (0.05)
+            這樣文字會跟著背景有輕微的深度差，但不會飄移太嚴重 */}
+        <div className="text-center hero-content px-3 position-relative parallax-layer" data-depth="0.05" style={{ zIndex: 1, pointerEvents: 'none' /* 防止文字層阻擋按鈕點擊 */ }}>
+          {/* pointerEvents: 'none' 是關鍵，它讓滑鼠事件穿透到下面的按鈕 */}
+          <div style={{ pointerEvents: 'auto' /* 恢復內容內部的點擊事件 */ }}>
+            <span className="text-primary fs-7 fw-bold tracking-widest mb-3 d-block text-uppercase about-content">
+              <i className="bi bi-hexagon me-2"></i>CORE DEV & FOOD SCIENTIST
+            </span>
+            <h1 className="display-1 fw-bold mb-4 home-title">精密轉譯<br/>數位體驗</h1>
+            <p className="lead text-secondary mx-auto mb-5" style={{ maxWidth: '800px' }}>
+              擁有食品研發與品管背景的嚴謹工程師，<br className="d-md-none d-block" />擅長以系統化邏輯與數據思維，<br className="d-md-none d-block" />打造易於維護且兼具高品質的前端網頁。
+            </p>
+            <div className="d-flex gap-3 justify-content-center">
+              <a href="#portfolio" className="btn btn-primary rounded-pill px-5 py-2">精選作品庫</a>
+              <Link to="/about" className="btn btn-outline-primary rounded-pill px-5 py-2">我的轉職故事</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 核心價值區塊 */}
       <section className="values-section py-6 bg-light">
@@ -144,6 +160,30 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* === 新增：技術棧跑馬燈區塊 (放置於作品集上方) === */}
+      <div className="tech-marquee-wrapper py-6 border-top border-bottom overflow-hidden bg-primary">
+        <div className="tech-marquee-inner d-flex">
+          {/* 第一組 */}
+          <div className="tech-marquee-content d-flex">
+            {skills.map((skill, index) => (
+              <div key={`g1-${index}`} className="tech-marquee-item d-flex align-items-center mx-4 fw-medium text-white fs-3">
+                <span className="text-yellow-10 me-2">✦</span>
+                {skill}
+              </div>
+            ))}
+          </div>
+          {/* 第二組（完全複製，用來遞補空白，達成無縫） */}
+          <div className="tech-marquee-content d-flex" aria-hidden="true">
+            {skills.map((skill, index) => (
+              <div key={`g2-${index}`} className="tech-marquee-item d-flex align-items-center mx-4 fw-medium text-white fs-3">
+                <span className="text-yellow-10 me-2">✦</span>
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* 作品集區塊 */}
       <section id="portfolio" className="container py-9 overflow-hidden">

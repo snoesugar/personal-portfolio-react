@@ -290,6 +290,52 @@ html {
   }
 }
 
+// 跑馬燈
+/* 外層遮罩，保持兩端淡出高質感 */
+.tech-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 內層包裝 */
+.tech-marquee-inner {
+  display: flex;
+  width: max-content;
+}
+
+/* 每單組內容物 */
+.tech-marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  will-change: transform;
+  /* 呼叫下方的動畫，30s 是滾動速度，可自行調整 */
+  animation: marquee-scroll 30s linear infinite;
+}
+
+/* 單個項目 */
+.tech-marquee-item {
+  white-space: nowrap;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+/* 核心：無縫循環動畫機制 */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* 這裡非常神奇，因為兩組內容完全一樣，位移 -100% 的瞬間會跟 0% 完美重合 */
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* 滑鼠懸停時暫停（選用，通常體驗很好，方便面試官看清楚技術） */
+.tech-marquee-wrapper:hover .tech-marquee-content {
+  animation-play-state: paused;
+}
+
 // 文字截斷 (確保高度固定，排版才整齊)
 .line-clamp-2 {
   display: -webkit-box;
