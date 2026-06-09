@@ -186,75 +186,79 @@ const Skills = () => {
 
         {/* --- Grid: 四大核心領域 --- */}
         <div className="row g-4 tech-grid-container mb-12">
-          
-          {/* 1. React 生態系與資料流 (Logic) */}
+  
+          {/* 1. 雙框架生態系與強型別 (Logic) */}
           <div className="col-md-6 col-lg-3 tech-card-wrapper">
             <div className="card h-100 border-0 shadow-sm p-4 hover-lift border-top border-primary border-4">
               <div className="mb-4 text-primary"><i className="bi bi-braces-asterisk fs-1"></i></div>
-              <h4 className="fw-bold mb-3">React 核心實作</h4>
+              <h4 className="fw-bold mb-3">雙框架核心實作</h4>
               <ul className="list-unstyled mb-0 small text-muted lh-lg">
-                <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>Redux Toolkit (RTK)</strong> 處理跨分頁全域狀態（如購物車、異步訊息）。</li>
-                <li><i className="bi bi-check2-circle text-primary me-2"></i>整合 <strong>React Hook Form</strong> 實作複雜表單即時驗證機制。</li>
-                <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>RESTful API</strong> 高效串接與非同步資料處理（Axios）。</li>
-                <li><i className="bi bi-check2-circle text-primary me-2"></i>自定義 <strong>Hooks</strong> 封裝，提升 UI 組件邏輯複用率。</li>
+                <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>Vue 3 & React 18</strong> 現代化主流前端框架雙棲實戰。</li>
+                <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>TypeScript</strong> 導入型別防禦，杜絕執行期空值錯誤。</li>
+                <li><i className="bi bi-check2-circle text-primary me-2"></i><strong>Pinia / Redux Toolkit</strong> 集中式控管全域複雜商務狀態。</li>
+                <li><i className="bi bi-check2-circle text-primary me-2"></i>串接 <strong>RESTful API</strong> 與異步資料流解耦，實現秒級數據過濾。</li>
               </ul>
-              <div className="d-flex gap-2 mt-auto pt-3 border-top">
+              <div className="d-flex gap-2 flex-wrap mt-auto pt-3 border-top">
+                <span className="badge bg-light text-dark fw-normal border">DOYOGA</span>
+                <span className="badge bg-light text-dark fw-normal border">ART NFT</span>
                 <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
               </div>
             </div>
           </div>
 
-          {/* 2. 視覺美學與動態交互 (UX/UI) */}
+          {/* 2. 視覺美學與現代樣式 (UX/UI) */}
           <div className="col-md-6 col-lg-3 tech-card-wrapper">
             <div className="card h-100 border-0 shadow-sm p-4 hover-lift border-top border-success border-4">
               <div className="mb-4 text-success"><i className="bi bi-magic fs-1"></i></div>
               <h4 className="fw-bold mb-3">視覺動態交互</h4>
               <ul className="list-unstyled mb-0 small text-muted lh-lg">
-                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>GSAP (ScrollTrigger)</strong> 打造沉浸式滾動視差與轉場。</li>
-                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>SASS 7-1 Pattern</strong> 結構化組織大型專案樣式系統。</li>
-                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>EJS 樣板引擎</strong> 達成元件化開發，優化靜態頁面管理。</li>
-                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>Responsive Design</strong> 達成像素級的 RWD 多裝置適應性。</li>
+                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>Tailwind CSS</strong> 原子化樣式調修，還原 100% 精細設計稿。</li>
+                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>CSS Masonry & Grid</strong> 實作原生不規則瀑布流與網格佈局。</li>
+                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>Swiper.js & GSAP</strong> 深度客製 3D 焦點輪播與滾動動畫。</li>
+                <li><i className="bi bi-check2-circle text-success me-2"></i><strong>Responsive Design</strong> 搭配 order 權重反轉優化極致 RWD 視野。</li>
               </ul>
-              <div className="d-flex gap-2 mt-auto pt-3 border-top">
-                <span className="badge bg-light text-dark fw-normal border">WorkWay</span>
-                <span className="badge bg-light text-dark fw-normal border">URBNSTEP</span>
+              <div className="d-flex gap-2 flex-wrap mt-auto pt-3 border-top">
+                <span className="badge bg-light text-dark fw-normal border">DOYOGA</span>
+                <span className="badge bg-light text-dark fw-normal border">ART NFT</span>
+                <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
               </div>
             </div>
           </div>
 
-          {/* 3. 工程自動化與協作 (DevOps) */}
+          {/* 3. 工程自動化與團隊協作 (DevOps) */}
           <div className="col-md-6 col-lg-3 tech-card-wrapper">
             <div className="card h-100 border-0 shadow-sm p-4 hover-lift border-top border-info border-4">
               <div className="mb-4 text-info"><i className="bi bi-terminal-split fs-1"></i></div>
               <h4 className="fw-bold mb-3">工程自動化協作</h4>
               <ul className="list-unstyled mb-0 small text-muted lh-lg">
-                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>Vite / Gulp</strong> 配置優化，加速開發編譯與打包效能。</li>
-                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>Git Flow</strong> 團隊協作，熟練 PR 審核與衝突排解流程。</li>
-                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>ESLint / Prettier</strong> 強制執行代碼規範，降低維護門檻。</li>
-                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>GH-Pages / Deployment</strong> 自動化部署流程建置與排錯。</li>
+                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>GitHub Actions</strong> 建立自動化工作流，落實敏捷開發。</li>
+                <li><i className="bi bi-check2-circle text-info me-2"></i>熟練 <strong>Vercel & Render</strong> 推送即上線之無感建構（CI/CD）。</li>
+                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>Git Flow</strong> 團隊標準化協作，主導 PR 審核與代碼衝突排解。</li>
+                <li><i className="bi bi-check2-circle text-info me-2"></i><strong>Vite / ESLint</strong> 品質管控與構建優化，確保代碼高維護性。</li>
               </ul>
               <div className="d-flex gap-2 flex-wrap mt-auto pt-3 border-top">
-                <span className="badge bg-light text-dark fw-normal border">Boardreams</span>
+                <span className="badge bg-light text-dark fw-normal border">ART NFT</span>
+                <span className="badge bg-light text-dark fw-normal border">DOYOGA</span>
                 <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
-                <span className="badge bg-light text-dark fw-normal border">Portfolio</span>
               </div>
             </div>
           </div>
 
-          {/* 4. 資料分析與品質控管 (QA/QC) */}
+          {/* 4. 資料分析與品管除錯 (QA/QC) */}
           <div className="col-md-6 col-lg-3 tech-card-wrapper">
             <div className="card h-100 border-0 shadow-sm p-4 hover-lift border-top border-warning border-4">
               <div className="mb-4 text-warning"><i className="bi bi-clipboard-data fs-1"></i></div>
               <h4 className="fw-bold mb-3">品質與數據分析</h4>
               <ul className="list-unstyled mb-0 small text-muted lh-lg">
-                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Chart.js</strong> 數據視覺化，將複雜心情與商業資料圖表化。</li>
-                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Edge Case Testing</strong> 承襲品管經驗，執行嚴謹的邊界測試。</li>
-                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>SOP Documentation</strong> 堅持編寫高品質 README 與註解。</li>
-                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Performance Tuning</strong> 針對網頁加載速度進行資源優化。</li>
+                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Chart.js</strong> 數據視覺化，精確解構動態健康與情緒趨勢圖表。</li>
+                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Null Defense</strong> 承襲 QC 經驗，針對空值進行邊界防禦與除錯。</li>
+                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>Performance Tuning</strong> 減少瀏覽器重繪 (Repaint) 以優化效能。</li>
+                <li><i className="bi bi-check2-circle text-warning me-2"></i><strong>SOP Documentation</strong> 嚴格執行高複用性元件與高讀性註解規範。</li>
               </ul>
-              <div className="d-flex gap-2 mt-auto pt-3 border-top">
+              <div className="d-flex gap-2 flex-wrap mt-auto pt-3 border-top">
                 <span className="badge bg-light text-dark fw-normal border">Mofu-Diary</span>
-                <span className="badge bg-light text-dark fw-normal border">ZOBAA</span>
+                <span className="badge bg-light text-dark fw-normal border">DOYOGA</span>
+                <span className="badge bg-light text-dark fw-normal border">ART NFT</span>
               </div>
             </div>
           </div>
@@ -342,7 +346,7 @@ const Skills = () => {
             </div>
             <div className="col-lg-4 text-lg-end mt-4 mt-lg-0">
               <Link to="/portfolio" className="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold transition-all">
-                檢視 6 大實戰成果 <i className="bi bi-arrow-right ms-2"></i>
+                檢視 8 大實戰成果 <i className="bi bi-arrow-right ms-2"></i>
               </Link>
             </div>
           </div>

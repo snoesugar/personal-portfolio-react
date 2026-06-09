@@ -347,45 +347,56 @@ const About = () => {
           </div>
           
           <div className="row g-4 tech-grid">
-            {/* 前端核心 */}
-            <div className="col-lg-4 tech-card">
+            {/* 雙框架與核心 */}
+            <div className="col-md-6 col-lg-3 tech-card">
               <div className="p-4 h-100 border-start border-4 border-primary bg-light shadow-sm">
-                <h5 className="fw-bold mb-3"><i className="bi bi-code-slash me-2"></i>前端核心開發</h5>
-                <ul className="list-unstyled small text-secondary lh-lg">
-                  <li><strong>語言與框架：</strong>React, JavaScript (ES6+), HTML5/CSS3</li>
-                  <li><strong>樣式與動態：</strong>SASS(SCSS), GSAP 高互動動畫</li>
-                  <li><strong>建置管理：</strong>Vite, Git/GitHub 版本控管</li>
+                <h5 className="fw-bold mb-3"><i className="bi bi-code-slash me-2"></i>雙框架核心開發</h5>
+                <ul className="list-unstyled small text-secondary lh-lg mb-0">
+                  <li><strong>核心語言：</strong>TypeScript, JavaScript (ES6+), HTML5/CSS3</li>
+                  <li><strong>雙現代框架：</strong>Vue 3 (Composition API), React 18</li>
+                  <li><strong>表單與驗證：</strong>VeeValidate, React Hook Form</li>
                 </ul>
               </div>
             </div>
 
-            {/* UI 實作 */}
-            <div className="col-lg-4 tech-card">
+            {/* 狀態與資料流 */}
+            <div className="col-md-6 col-lg-3 tech-card">
               <div className="p-4 h-100 border-start border-4 border-primary bg-light shadow-sm">
-                <h5 className="fw-bold mb-3"><i className="bi bi-layout-sidebar-inset me-2"></i>UI 互動與樣式</h5>
-                <ul className="list-unstyled small text-secondary lh-lg">
-                  <li><strong>CSS 體系：</strong>Bootstrap 5, Tailwind CSS</li>
-                  <li><strong>響應式設計：</strong>RWD 獨立切版與跨裝置優化</li>
-                  <li><strong>相容性處理：</strong>跨瀏覽器不穩定痛點調修</li>
+                <h5 className="fw-bold mb-3"><i className="bi bi-diagram-3-fill me-2"></i>狀態控管與異步資料</h5>
+                <ul className="list-unstyled small text-secondary lh-lg mb-0">
+                  <li><strong>全域狀態管理：</strong>Pinia, Redux Toolkit (RTK)</li>
+                  <li><strong>非同步資料流：</strong>RESTful API 串接, Axios</li>
+                  <li><strong>視圖解耦：</strong>Computed 響應式資料過濾, Custom Hooks 封裝</li>
                 </ul>
               </div>
             </div>
 
-            {/* 軟實力 */}
-            <div className="col-lg-4 tech-card">
+            {/* 樣式、動效與環境 */}
+            <div className="col-md-6 col-lg-3 tech-card">
               <div className="p-4 h-100 border-start border-4 border-primary bg-light shadow-sm">
-                <h5 className="fw-bold mb-3"><i className="bi bi-cpu-fill me-2"></i>軟實力與工程思維</h5>
-                <ul className="list-unstyled small text-secondary lh-lg">
-                  <li><strong>QA/QC 思維：</strong>邏輯除錯與邊界條件測試</li>
-                  <li><strong>跨部門轉譯：</strong>技術需求與非技術部門對接</li>
-                  <li><strong>SOP 化開發：</strong>確保代碼一致性與可維護性</li>
+                <h5 className="fw-bold mb-3"><i className="bi bi-layout-sidebar-inset me-2"></i>介面與自動化工程</h5>
+                <ul className="list-unstyled small text-secondary lh-lg mb-0">
+                  <li><strong>樣式與 RWD：</strong>Tailwind CSS, SCSS (7-1 Pattern/BEM)</li>
+                  <li><strong>互動媒體效果：</strong>Swiper.js, GSAP 滾動動畫, Chart.js</li>
+                  <li><strong>工程化與部署：</strong>Vite, Git Flow, CI/CD (GitHub Actions, Vercel)</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* 軟實力與工程思維 */}
+            <div className="col-md-6 col-lg-3 tech-card">
+              <div className="p-4 h-100 border-start border-4 border-primary bg-light shadow-sm">
+                <h5 className="fw-bold mb-3"><i className="bi bi-cpu-fill me-2"></i>跨界思維與品管精神</h5>
+                <ul className="list-unstyled small text-secondary lh-lg mb-0">
+                  <li><strong>QC/R&D 除錯精神：</strong>嚴謹防線測試、初始路由空值（Null）防禦</li>
+                  <li><strong>商業敏銳度：</strong>超市運營邏輯轉譯、引導式 UI/UX 優化商務轉換</li>
+                  <li><strong>跨團隊溝通：</strong>技術負責人（主導 PR 審核）、跨部門需求精準對接</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* --- Section 6: 具體事實 (專案成果) --- */}
       <section className="about-section py-9 container">
         <div className="text-center mb-6">
@@ -430,9 +441,23 @@ const About = () => {
                 我擅長將繁瑣的跨部門需求轉譯為簡潔的技術實現方案。曾面對麥當勞、全家等大客戶客訴處理的經歷，讓我成為開發團隊與客戶/設計師之間最穩定的橋樑。
               </p>
               <div className="d-flex flex-wrap justify-content-center gap-2">
-                {["React / Redux", "Vite / SCSS", "跨職能溝通", "系統化思考", "數據導向", "Git 衝突管理", "品質管理",  
-                  "Debug 敏銳度", "SOP 文檔撰寫", "Git Version Control", "高品質代碼"].map(tag => (
-                  <span key={tag} className="badge skill-tag bg-white text-dark border px-4 py-2 rounded-pill shadow-sm">#{tag}</span>
+                {[
+                  "Vue 3 / React 18", 
+                  "TypeScript 強型別", 
+                  "Pinia / Redux Toolkit", 
+                  "Tailwind / SCSS BEM", 
+                  "Vite / GitHub Actions", 
+                  "CI/CD 自動化部署",
+                  "SOP 規範主導", 
+                  "Git Flow 衝突管理", 
+                  "空值防禦 (Null Defense)", 
+                  "數據視覺化", 
+                  "引導式 UI/UX", 
+                  "跨職能溝通轉譯"
+                ].map(tag => (
+                  <span key={tag} className="badge skill-tag bg-white text-dark border px-4 py-2 rounded-pill shadow-sm">
+                    #{tag}
+                  </span>
                 ))}
               </div>
             </div>
