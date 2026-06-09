@@ -1,5 +1,31 @@
 [
   {
+    "id": "art-nft",
+    "title": "NFT",
+    "desc": "以新潮流美學與硬派黑邊線條打造的數位藝術交換與市價排行榜平台。",
+    "images": ["NFT-1.png", "NFT-2.png", "NFT-3.png", "NFT-4.png", "NFT-5.png", "NFT-6.png"],
+    "url": "https://snoesugar.github.io/ART-NFT-Vue-Tailwindcss/#/",
+    "gitHubUrl": "https://github.com/snoesugar/ART-NFT-Vue-Tailwindcss",
+    "tags": ["Vue 3", "Pinia", "TypeScript", "Tailwind CSS", "GitHub Actions", "Swiper"],
+    "motivation": "Web3 時代的數位藝術不應侷限於二維靜態網頁，多數 NFT 平台偏向金融科技感，缺少藝術作品本身的靈魂與故事性。本專案透過大膽的硬派黑邊潮流感、置中聚焦的藝術家輪播等 UI/UX 設計，讓使用者如同置身當代線上實體特展，並利用極致 RWD 降低大眾接觸數位藝術的門檻。",
+    "function": "1. 視覺優化與雙端自適應佈局：\n• 深度客製化 Swiper.js 核心 CSS，在桌機端實作「非 Active 卡片縮小至 48% 並套用去色濾鏡 (grayscale)」的 3D 置中焦點輪播，完美聚焦當前藝術家。\n• 排行榜區塊針對桌機端採用大圖懸浮遮罩、手機端重組為 90px 橫向列表，兼顧雙端極致的視覺衝擊與操作體驗。\n2. 資料解耦與高效能多維度篩選：\n• 將靜態資料完全抽離，改以 API 非同步請求驅動視圖渲染，達成 UI 與 Data 的徹底解耦，大幅提升後續對接真實後端之擴充性。\n• 利用 Vue computed 計算屬性對原始資料進行響應式過濾，實作秒級響應的作品屬性篩選器。\n3. 全局狀態與高效能瀑布流：\n• 將分散各組件的局部載入狀態，統一收納至 Store 集中管理全域 Loading 狀態，確保跨頁面進行 API 請求時加載體驗完全同步可預測。\n• Artwork 區塊利用 Tailwind CSS 多欄位佈局 (columns) 實作 Masonry 瀑布流，並封裝絕對定位漸變遮罩，在 hover 時順暢觸發價格資訊，減少瀏覽器重繪 (Repaint) 消耗。\n4. 組件解耦與自動化部署：\n• 將核心按鈕抽象化封裝為原子化 Button.vue 組件，透過 props 動態控制背景與邊框，達成高複用性；並利用 Vite 動態解析本地圖片路徑確保打包資源正確。\n• 撰寫 deploy.yml 配置 GitHub Actions 自動化工作流（基於 Node.js 20、啟用 npm ci 快取），在代碼推送時自動執行強型別檢查、構建並零時差發布至 GitHub Pages，落實標準敏捷開發。",
+    "challenge": "傳統 Flexbox 佈局無法完美包容不規則的圖片高度，且隨著圖片量增加，頻繁觸發詳情遮罩容易導致瀏覽器大量重繪（Repaint），影響瀑布流的滾動效能與視覺流暢度。",
+    "overcome": "• 導入 Tailwind CSS 的 columns 佈局實作原生 CSS 級別的 Masonry 瀑布流，免除額外 JavaScript 計算開銷。\n• 針對瀑布流卡片封裝獨立的絕對定位漸變遮罩，優化動畫觸發機制以降低重繪消耗，維持流暢的硬派線條動態互動。\n• 全面導入 TypeScript，針對 artists、artworks（含篩選屬性）建立嚴格的 Interface 定義，確保資料流從 API 請求到 UI 渲染的型別安全。"
+  },
+  {
+    "id": "doyoga",
+    "title": "DOYOGA",
+    "desc": "專為瑜珈愛好者設計的響應式品牌官網，以輕時尚視覺與流暢動態打造沉浸式體驗。",
+    "images": ["doyoga-1.png", "doyoga-2.png", "doyoga-3.png", "doyoga-4.png", "doyoga-5.png"],
+    "url": "https://doyoga-vue-tailwindcss.vercel.app/",
+    "gitHubUrl": "https://github.com/snoesugar/DOYOGA",
+    "tags": ["Vue 3", "Pinia", "TypeScript", "Tailwind CSS", "Vite", "Swiper"],
+    "motivation": "現代人常因忙碌而焦慮緊繃，瑜珈是釋放壓力的溫柔媒介，但許多運動官網資訊過於生硬。本專案旨在透過引導式 UI/UX 設計與流暢動態反饋，從首頁起便建立放鬆的沉浸感，透過直覺的導覽流程協助使用者找到專屬課程，在墊子上找到屬於自己的寧靜角落。",
+    "function": "1. 全域狀態與跨頁預約流：\n• 使用 Pinia 建立 userReservationStore，集中管理多步驟預約表單（經驗、目標、個資），並實作 Object.assign(this.$state, data) 進行響應式狀態的批次安全更新。\n• 實作首頁/方案頁點選特定課程後，資料無縫帶入預約報名頁的欄位，大幅優化商務轉換率。\n2. 響應式佈局與自適應媒體渲染：\n• 運用 Tailwind CSS 實作嚴謹 RWD 設計，針對行動端與桌面端（md:, lg:）進行斷點微調，並透過 order 權重反轉優化環境介紹區塊的跨裝置閱讀視野。\n• 行動端採用網格（Grid）排列極大化載入效能，桌面端（lg）自動切換並初始化 Swiper.js 輪播，配置 slidesPerView: 1.5 視覺留白營造高雅延伸感。\n3. 原生手勢拖曳與平滑導覽：\n• 使用 Vue 3 ref 直接操作 DOM 元素，透過計算 MouseEvent 物理座標，為評論區塊打造順暢的「滑鼠抓取拖曳（Drag to Scroll）」功能。\n• 整合 CSS snap-x 物理對齊與 scrollBy 平滑捲動 API，提供行動端按鈕與滑動手勢雙軌導覽。\n4. 資料驅動與動畫性能優化：\n• 將特色功能、課程、師資、方案及評論全面封裝為結構化陣列，透過 v-for 達成高維護性的動態渲染。\n• 利用 Tailwind 的 group-hover 特效實作師資卡片 hover 自我展開與圖片縮放，善用硬體加速提升動畫流暢度。",
+    "challenge": "在跨頁面傳遞預約資料與初始路由載入時，容易因 string | null 或 number | null 的潛在空值，導致型別衝突與執行期錯誤（Runtime Error）。",
+    "overcome": "• 全面導入 TypeScript 定義 ReservationForm 介面實施強型別約束。\n• 在 Store 內部將 selectedPlan 與 selectedCourse 斷言為 string | null，並在 Actions（如 setPlan, setCourse）中嚴格限制傳入型別，徹底杜絕空值衝突。\n• 運用 Pinia Getters（如 selectedDateDisplay）進行即時資料轉換（如 YYYY-MM-DD 轉為 YYYY/MM/DD），達成資料與視圖的完美分離。"
+  },
+  {
     "id": "boardreams",
     "title": "Boardreams",
     "desc": "以產品化思維打造的桌遊展示平台，專注於流暢的視覺體驗與商業邏輯。",
