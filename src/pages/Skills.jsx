@@ -332,6 +332,65 @@ const Skills = () => {
                 </div>
               </div>
             </div>
+                        {/* 挑戰 1: 跨頁狀態管理與空值防禦 */}
+            <div className="col-lg-6 challenge-item">
+              <div className="p-4 bg-light rounded-4 h-100 border-start border-primary border-5">
+                <div className="d-flex align-items-start mb-3">
+                  <span className="badge bg-primary me-2 mt-1">挑戰</span>
+                  <h5 className="fw-bold mb-0">跨頁預約流程的型別衝突與空值錯誤 (DOYOGA)</h5>
+                </div>
+                <p className="small text-secondary mb-3">多步驟表單資料流在跨頁傳遞與初始路由載入時，易因 string | null 潛在空值導致型別衝突與執行期錯誤（Runtime Error）。</p>
+                <div className="d-flex align-items-start">
+                  <span className="badge bg-success me-2 mt-1">克服</span>
+                  <p className="small text-dark mb-0 fw-medium">導入 <strong>TypeScript 建立強型別 Interface</strong> 約束全域 Store，配合 <strong>Pinia Actions 嚴格限制傳入型別</strong>，並利用 Getters 進行即時轉換，徹底杜絕空值崩潰。</p>
+                </div>
+              </div>
+            </div>
+
+           {/* 挑戰 2: 多維度響應式資料過濾效能 */}
+            <div className="col-lg-6 challenge-item">
+              <div className="p-4 bg-light rounded-4 h-100 border-start border-info border-5">
+                <div className="d-flex align-items-start mb-3">
+                  <span className="badge bg-info me-2 mt-1">挑戰</span>
+                  <h5 className="fw-bold mb-0">多維度複雜屬性篩選器的響應式效能挑戰 (ART NFT)</h5>
+                </div>
+                <p className="small text-secondary mb-3">當藝術品數量增加、且同時勾選「類別、價格區間、藝術家」等多重條件時，頻繁觸發視圖重新渲染，容易造成數據過濾延遲與畫面微幅卡頓。</p>
+                <div className="d-flex align-items-start">
+                  <span className="badge bg-success me-2 mt-1">克服</span>
+                  <p className="small text-dark mb-0 fw-medium">善用 Vue 3 的 <strong>computed 計算屬性緩存機制</strong>，建立多階層過濾邏輯，確保原始資料只在相依狀態改變時才重新計算，實作秒級響應的高效能篩選體驗。</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 挑戰 3: 瀑布流排版與渲染效能優化 */}
+            <div className="col-lg-6 challenge-item">
+              <div className="p-4 bg-light rounded-4 h-100 border-start border-success border-5">
+                <div className="d-flex align-items-start mb-3">
+                  <span className="badge bg-success me-2 mt-1">挑戰</span>
+                  <h5 className="fw-bold mb-0">不規則圖片排版與滑鼠懸浮重繪消耗 (ART NFT)</h5>
+                </div>
+                <p className="small text-secondary mb-3">傳統 Flexbox 佈局無法完美包容異高圖片，且大量卡片在頻繁觸發詳情遮罩時，容易導致瀏覽器大量重繪（Repaint）影響滾動流暢度。</p>
+                <div className="d-flex align-items-start">
+                  <span className="badge bg-success me-2 mt-1">克服</span>
+                  <p className="small text-dark mb-0 fw-medium">導入 Tailwind CSS 的 <strong>columns 多欄位佈局</strong> 實作原生 Masonry 瀑布流，並<strong>封裝獨立的絕對定位漸變遮罩</strong>優化動畫觸發機制，大幅降低重繪效能消耗。</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 挑戰 4: 跨裝置交互與 DOM 控制 */}
+            <div className="col-lg-6 challenge-item">
+              <div className="p-4 bg-light rounded-4 h-100 border-start border-warning border-5">
+                <div className="d-flex align-items-start mb-3">
+                  <span className="badge bg-warning text-dark me-2 mt-1">挑戰</span>
+                  <h5 className="fw-bold mb-0">桌機端滑鼠抓取拖曳與平滑滾動控制 (DOYOGA)</h5>
+                </div>
+                <p className="small text-secondary mb-3">為提升桌機端的評論瀏覽體驗，期望脫離生硬的傳統網格捲軸，模擬出如同行動端手指滑動般的原生流暢手勢。</p>
+                <div className="d-flex align-items-start">
+                  <span className="badge bg-success me-2 mt-1">克服</span>
+                  <p className="small text-dark mb-0 fw-medium">透過 Vue 3 ref 操縱 DOM 並<strong>精確計算 MouseEvent 物理座標</strong>，自研原生 <strong>Drag to Scroll 功能</strong>，並搭配 CSS snap-x 實作自動平滑對齊導覽。</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
